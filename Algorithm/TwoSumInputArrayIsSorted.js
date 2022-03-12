@@ -24,17 +24,41 @@
 // Output: [1,2]
 // Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 
+// this solution is taking too long
+// const twoSum = (numbers, target) => {
+//     for (let index = 0; index < numbers.length; index++) {
+//         let potentialSecondNumber = target - numbers[index];
+//         let potentialSecondNumberIndex = numbers.indexOf(potentialSecondNumber, index+1);
+//         console.log(`index is ${index}, potentialSecondNumber is ${potentialSecondNumber}, potentialSecondNumberIndex is ${potentialSecondNumberIndex}`);
+//         if(potentialSecondNumberIndex > 0) {
+//             return [index + 1, potentialSecondNumberIndex + 1];
+//         }
+//     }
+// };
+
 const twoSum = (numbers, target) => {
-    for (let index = 0; index < numbers.length; index++) {
-        let potentialSecondNumber = target - numbers[index];
-        let potentialSecondNumberIndex = numbers.indexOf(potentialSecondNumber, index+1);
-        console.log(`index is ${index}, potentialSecondNumber is ${potentialSecondNumber}, potentialSecondNumberIndex is ${potentialSecondNumberIndex}`);
-        if(potentialSecondNumberIndex > 0) {
-            return [index + 1, potentialSecondNumberIndex + 1];
+    let startIndex = 0;
+    let endIndex = numbers.length - 1;
+    let loop = true;
+
+    while(loop) {
+        let sum = numbers[startIndex] + numbers[endIndex];
+        if ( sum > target) {
+            endIndex--;
+            console.log(`endIndex is: ${endIndex}`);
         }
+        else if (sum > target) {
+            startIndex++;
+            console.log(`startIndex is : ${startIndex}`);
+        }
+
+        else loop = false;
     }
+
+    return [startIndex + 1, endIndex + 1];
 };
 
 console.log(twoSum([2,7,11,15], 9));
 console.log(twoSum([2,3,4], 6));
 console.log(twoSum([-1,0], -1));
+console.log(twoSum([5, 25, 75], 100));

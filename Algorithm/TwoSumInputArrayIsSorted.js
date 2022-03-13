@@ -47,7 +47,7 @@ const twoSum = (numbers, target) => {
             endIndex--;
             console.log(`endIndex is: ${endIndex}`);
         }
-        else if (sum > target) {
+        else if (sum < target) {
             startIndex++;
             console.log(`startIndex is : ${startIndex}`);
         }
@@ -58,7 +58,7 @@ const twoSum = (numbers, target) => {
     return [startIndex + 1, endIndex + 1];
 };
 
-console.log(twoSum([2,7,11,15], 9));
-console.log(twoSum([2,3,4], 6));
-console.log(twoSum([-1,0], -1));
+// console.log(twoSum([2,7,11,15], 9));
+// console.log(twoSum([2,3,4], 6));
+// console.log(twoSum([-1,0], -1));
 console.log(twoSum([5, 25, 75], 100));

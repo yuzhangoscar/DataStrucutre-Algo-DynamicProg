@@ -23,3 +23,18 @@
 // Constraints:
 
 // -231 <= n <= 231 - 1
+
+const isPowerOfTwo = (n) => {
+    if (n >=0 && n % 2 == 0 || n==1) {
+        if (Number.isInteger(Math.log2(n))) {
+            return true;
+        }
+        return false;
+    }
+    else return false;
+};
+
+console.log(isPowerOfTwo(2));
+console.log(isPowerOfTwo(1));
+console.log(isPowerOfTwo(4));
+console.log(isPowerOfTwo(-2));

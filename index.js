@@ -1,4 +1,16 @@
-const imported = require('./practice');
+const express = require('express');
+const router = express.Router();
 
-console.log(process.argv);
-console.log(imported.foo, imported.bar);
+const app = express();
+
+router.get('/', function(req, res){
+    res.send('home page');
+})
+
+router.get('/about', function(req, res) {
+    res.send('About this wiki');
+})
+
+app.use('/wiki', router)
+    .listen(3000);
+

@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static('public'));
+app.use('/static', express.static('public'));
 
 router.get('/', function(req, res){
     res.send('home page');

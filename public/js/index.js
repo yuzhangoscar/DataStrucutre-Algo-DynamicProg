@@ -1,0 +1,1 @@
+console.log('this is from index.js under public repo');

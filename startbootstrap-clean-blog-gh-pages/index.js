@@ -9,8 +9,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get('/', (req,res) => {
-    res.render('index');
+app.get('/', async (req,res) => {
+    const blogposts = await BlogPost.find();
+    res.render('index', {
+        blogposts
+    });
 });
 app.get('/about', (req,res) => {
     res.render('about');
@@ -18,14 +21,17 @@ app.get('/about', (req,res) => {
 app.get('/contact', (req,res) => {
     res.render('contact');
 });
-app.get('/post', (req,res) => {
-    res.render('post');
+app.get('/post/:id', async(req,res) => {
+    const blogpost = await BlogPost.findById(req.params.id);
+    res.render('post',{
+        blogpost
+    });
 });
 app.get('/posts/new', (req, res) => {
     res.render('create');
 });
 app.post('/posts/store', async (req, res) => {
-    await BlogPost.create(req.body)
+    await BlogPost.create(req.body);
     res.redirect('/');
 });
 app.use(express.static('public'));

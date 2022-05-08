@@ -5,7 +5,12 @@ mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
 const Schema = mongoose.Schema;
 const BlogPostSchema = new Schema({
     title: String,
-    body: String
+    body: String,
+    dataPosted: {
+        type:Date,
+        default: new Date()
+    },
+    image:String
 }); 
 const BlogPost = mongoose.model('BlogPost', BlogPostSchema);
 

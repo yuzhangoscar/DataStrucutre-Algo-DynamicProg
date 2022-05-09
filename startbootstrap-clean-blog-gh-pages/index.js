@@ -7,6 +7,7 @@ const homeController = require('./controllers/home');
 const getPostController = require('./controllers/getPost');
 const storePostController = require('./controllers/storePost');
 const newUserController = require('./controllers/newUser');
+const storeUserController = require('./controllers/storeUser');
 
 const app = new express();
 app.set('view engine', 'ejs');
@@ -19,6 +20,7 @@ app.get('/', homeController);
 app.get('/post/:id', getPostController);
 app.get('/posts/new', newPostController);
 app.get('/users/register', newUserController);
+app.post('/users/register', storeUserController);
 app.post('/posts/store', storePostController);
 app.listen(3000, ()=>{
     console.log('listening on 3000');

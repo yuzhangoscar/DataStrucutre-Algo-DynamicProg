@@ -4,16 +4,20 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 const UserSchema = new Schema({
-    username: String,
-    password: String
+    username: {
+        type: String,
+        required: true, 
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 });
 UserSchema.pre('save', function(next){
-    console.log(`this is: ${this}`);
     const user = this;
-    console.log(`user is: ${user}`);
     bcrypt.hash(user.password, 10, (error, hash) => {
         user.password = hash;
-        console.log(hash);
         next();
     });
 });

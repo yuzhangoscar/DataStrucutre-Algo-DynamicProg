@@ -11,6 +11,7 @@ const newUserController = require('./controllers/newUser');
 const storeUserController = require('./controllers/storeUser');
 const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
+const logoutController = require('./controllers/logout');
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 
@@ -32,9 +33,11 @@ app.get('/post/:id', getPostController);
 app.get('/posts/new', authMiddleware, newPostController);
 app.get('/users/register', redirectIfAuthenticatedMiddleware, newUserController);
 app.get('/users/login', redirectIfAuthenticatedMiddleware, loginController);
+app.get('/auth/logout', logoutController);
 app.post('/users/register', redirectIfAuthenticatedMiddleware, storeUserController);
 app.post('/users/login', redirectIfAuthenticatedMiddleware, loginUserController);
 app.post('/posts/store', authMiddleware, storePostController);
+app.use((req, res) => res.render('notfound'));
 app.listen(3000, ()=>{
     console.log('listening on 3000');
 });

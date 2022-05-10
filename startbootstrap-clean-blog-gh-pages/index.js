@@ -14,9 +14,14 @@ const loginUserController = require('./controllers/loginUser');
 const authMiddleware = require('./middleware/authMiddleware');
 const redirectIfAuthenticatedMiddleware = require('./middleware/redirectIfAuthenticatedMiddleware');
 
+global.loggedIn = null;
 const app = new express();
 app.set('view engine', 'ejs');
 app.use(expressSession({secret: 'cat'}));
+app.use('*', (req, res, next) => {
+    loggedIn = req.session.userId;
+    next();
+});
 app.use(express.static('public'));
 app.use(fileUpload());
 app.use(bodyParser.json());

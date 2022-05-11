@@ -1,10 +1,14 @@
 const User = require('../models/User');
 
-module.exports = async (req, res) => {
-    await User.create(req.body, (error, user) => {
+module.exports = (req, res) => {
+    User.create(req.body, (error, user) => {
         if(error) {
-            res.redirect('/auth/register');
+            console.log(`encountered error, ${error}`);
+            const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message);
+            req.session.validationErrors = validationErrors;
+            console.log(req.session.validationErrors);
+            res.redirect('/users/register');
         }
-        res.redirect('/');
+        else res.redirect('/');
     });
 };

@@ -3,6 +3,7 @@ const ejs = require('ejs');
 const expressSession = require('express-session');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const flash = require('connect-flash');
 const newPostController = require('./controllers/newPost');
 const homeController = require('./controllers/home');
 const getPostController = require('./controllers/getPost');
@@ -19,6 +20,7 @@ global.loggedIn = null;
 const app = new express();
 app.set('view engine', 'ejs');
 app.use(expressSession({secret: 'cat'}));
+app.use(flash());
 app.use('*', (req, res, next) => {
     loggedIn = req.session.userId;
     next();

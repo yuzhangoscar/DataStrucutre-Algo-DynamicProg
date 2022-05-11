@@ -6,12 +6,12 @@ const bcrypt = require('bcrypt');
 const UserSchema = new Schema({
     username: {
         type: String,
-        required: true, 
+        required: [true, 'Type in username or die'], 
         unique: true
     },
     password: {
         type: String,
-        required: true
+        required: [true, 'type in password or die'],
     }
 });
 UserSchema.pre('save', function(next){

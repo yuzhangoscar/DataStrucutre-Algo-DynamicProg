@@ -6,7 +6,7 @@ module.exports = (req, res) => {
             console.log(`encountered error, ${error}`);
             const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message);
             req.flash('validationErrors', validationErrors);
-            console.log(req.session.validationErrors);
+            req.flash('data', req.body);
             res.redirect('/users/register');
         }
         else res.redirect('/');

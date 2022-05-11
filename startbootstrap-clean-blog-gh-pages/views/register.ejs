@@ -38,12 +38,12 @@
                                 <%}%>
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/users/register" method="POST" enctype="multipart/form-data">
                                 <div class="form-floating">
-                                    <input class="form-control" id="username" type="text" placeholder="User Name" name="username"/>
+                                    <input class="form-control" id="username" type="text" placeholder="User Name" name="username" value="<%=username%>"/>
                                     <label>User name</label>
                                 </div>
                                 <br />
                                 <div class="form-floating">
-                                    <input class="form-control" id="password" type="text" placeholder="Password" name="password"/>
+                                    <input class="form-control" id="password" type="text" placeholder="Password" name="password" value="<%=password%>"/>
                                     <label>Password</label>
                                 </div>
                                 <!-- Submit success message-->

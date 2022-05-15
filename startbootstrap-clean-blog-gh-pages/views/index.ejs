@@ -29,9 +29,9 @@
                             <h3 class="post-subtitle"><%=blogposts[i].body %></h3>
                         </a>
                         <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2022
+                            Posted by 
+                            <a href="#!"><%=blogposts[i].username %></a>
+                            on<%=blogposts[i].datePosted %>
                         </p>
                     </div>
                     <%}%>

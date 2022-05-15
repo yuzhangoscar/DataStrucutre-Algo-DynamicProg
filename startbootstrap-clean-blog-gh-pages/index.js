@@ -5,12 +5,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true});
-BlogPost.create({
-    title:'my title',
-    body: 'my body'
-},(error, blogpost)=>{
-    console.log(`created`);
-});
 const app = new express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -18,7 +12,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.get('/', async (req, res) => {
     const blogposts = await BlogPost.find({});
-    res.render('index');
+    res.render('index', {
+        blogposts
+    });
 });
 app.get('/about', (req, res) => {
     res.render('about');

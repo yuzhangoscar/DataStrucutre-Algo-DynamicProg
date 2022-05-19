@@ -1,5 +1,5 @@
 import { response, Router } from 'express';
-import express from 'expresss';
+import express from 'express';
 
 const router = express.Router();
 router.route('/').get((req, res) => {

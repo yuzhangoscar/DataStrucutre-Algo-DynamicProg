@@ -57,22 +57,68 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "ID"), /*#__PURE__*/React.createElement("th", null, "Title"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement(IssueRow, null), /*#__PURE__*/React.createElement(IssueRow, null)));
+      var rowStyle = {
+        border: "1px solid silver",
+        padding: 4
+      };
+      return /*#__PURE__*/React.createElement("table", {
+        style: {
+          borderCollapse: "collapse"
+        }
+      }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", {
+        style: rowStyle
+      }, "ID"), /*#__PURE__*/React.createElement("th", {
+        style: rowStyle
+      }, "Title"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement(IssueRow, {
+        rowStyle: rowStyle,
+        issue_id: 1,
+        issue_title: "Error in console when clicking Add"
+      }), /*#__PURE__*/React.createElement(IssueRow, {
+        rowStyle: rowStyle,
+        issue_id: 2,
+        issue_title: "Missing bottom border on panel"
+      })));
     }
   }]);
 
   return IssueTable;
 }(React.Component);
 
-var IssueAdd = /*#__PURE__*/function (_React$Component3) {
-  _inherits(IssueAdd, _React$Component3);
+var IssueRow = /*#__PURE__*/function (_React$Component3) {
+  _inherits(IssueRow, _React$Component3);
 
-  var _super3 = _createSuper(IssueAdd);
+  var _super3 = _createSuper(IssueRow);
+
+  function IssueRow() {
+    _classCallCheck(this, IssueRow);
+
+    return _super3.apply(this, arguments);
+  }
+
+  _createClass(IssueRow, [{
+    key: "render",
+    value: function render() {
+      var style = this.props.rowStyle;
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_id), /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_title));
+    }
+  }]);
+
+  return IssueRow;
+}(React.Component);
+
+var IssueAdd = /*#__PURE__*/function (_React$Component4) {
+  _inherits(IssueAdd, _React$Component4);
+
+  var _super4 = _createSuper(IssueAdd);
 
   function IssueAdd() {
     _classCallCheck(this, IssueAdd);
 
-    return _super3.apply(this, arguments);
+    return _super4.apply(this, arguments);
   }
 
   _createClass(IssueAdd, [{
@@ -85,15 +131,15 @@ var IssueAdd = /*#__PURE__*/function (_React$Component3) {
   return IssueAdd;
 }(React.Component);
 
-var IssueList = /*#__PURE__*/function (_React$Component4) {
-  _inherits(IssueList, _React$Component4);
+var IssueList = /*#__PURE__*/function (_React$Component5) {
+  _inherits(IssueList, _React$Component5);
 
-  var _super4 = _createSuper(IssueList);
+  var _super5 = _createSuper(IssueList);
 
   function IssueList() {
     _classCallCheck(this, IssueList);
 
-    return _super4.apply(this, arguments);
+    return _super5.apply(this, arguments);
   }
 
   _createClass(IssueList, [{

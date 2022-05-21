@@ -1,4 +1,3 @@
-import { createNullProtoObjWherePossible } from 'ejs/lib/utils';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -15,8 +14,20 @@ class Clock extends React.Component {
         this.state = {date: new Date()};
     }
 
+    componentDidMount() {
+        this.timeID = setInterval(
+            () => this.tick(), 
+            1000);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+
     render() {
-        return <h1> {this.state.date.toLocaleDateString()} </h1>
+        return <h1> {this.state.date.toLocaleTimeString()} </h1>
     }
 }
 
@@ -80,7 +91,7 @@ class Game extends React.Component {
             <ol>{/* TODO */}</ol>
         </div>
             <Statement name='hi' />
-            <Clock />
+            <Clock /> 
         </div>
     );
     }

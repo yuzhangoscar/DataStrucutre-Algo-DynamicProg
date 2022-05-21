@@ -1,6 +1,24 @@
+import { createNullProtoObjWherePossible } from 'ejs/lib/utils';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+class Statement extends React.Component {
+    render() {
+        return <h1>hello, {this.props.name}</h1>
+    }
+}
+
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+    }
+
+    render() {
+        return <h1> {this.state.date.toLocaleDateString()} </h1>
+    }
+}
 
 class Square extends React.Component {
     constructor(props) {
@@ -12,8 +30,8 @@ class Square extends React.Component {
 
     render() {
         return (
-            <button className="square" onClick={() => {console.log('clicked');}}>
-                {this.props.value}
+            <button className="square" onClick={() => {this.setState({value: 'X'});}}>
+                {this.state.value}
             </button>
         );
     }
@@ -61,6 +79,8 @@ class Game extends React.Component {
             <div>{/* status */}</div>
             <ol>{/* TODO */}</ol>
         </div>
+            <Statement name='hi' />
+            <Clock />
         </div>
     );
     }

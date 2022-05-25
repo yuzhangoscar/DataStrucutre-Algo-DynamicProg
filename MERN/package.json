@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "babel src --out-dir public",
     "watch": "babel src --out-dir public --watch --verbose",
-    "start": "nodemon -w server server/server.js"
+    "start": "babel src --out-dir public && nodemon -w server server/server.js"
   },
   "keywords": [],
   "author": "",

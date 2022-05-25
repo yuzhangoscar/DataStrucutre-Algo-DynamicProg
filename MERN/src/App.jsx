@@ -50,7 +50,7 @@ class IssueList extends React.Component {
     render() {
         return (
             <div>
-                <h1>Issue Tracker</h1>
+                <h1>Issue Tracker {JSON.stringify(new Date())}</h1>
                 <IssueFilter />
                 <IssueTable />
                 <IssueAdd />
@@ -60,4 +60,27 @@ class IssueList extends React.Component {
 }
 
 const element = <IssueList />;
-ReactDOM.render(element, document.getElementById('content'));
+const sillyJSX = (
+    <h1>h1
+        <h2>h2</h2>
+    </h1>
+);
+const issues = [{
+        id: 1,
+        status: 'New',
+        owner: 'Ravan',
+        effort: 5,
+        created: new Date('2018-08-15'),
+        due: undefined,
+        title: 'Error in console when clicking Add'
+    }, 
+    {
+        id: 2, 
+        status: 'Assigned', 
+        owner: 'Eddie',
+        effort: 14,
+        created: new Date('2018-08-16'),
+        due: new Date('2018-08-30'),
+        title: 'Missing bottom boarder on'
+    }];
+ReactDOM.render(sillyJSX, document.getElementById('content'));

@@ -145,7 +145,7 @@ var IssueList = /*#__PURE__*/function (_React$Component5) {
   _createClass(IssueList, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement(IssueAdd, null));
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker ", JSON.stringify(new Date())), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement(IssueAdd, null));
     }
   }]);
 
@@ -153,4 +153,22 @@ var IssueList = /*#__PURE__*/function (_React$Component5) {
 }(React.Component);
 
 var element = /*#__PURE__*/React.createElement(IssueList, null);
-ReactDOM.render(element, document.getElementById('content'));
+var sillyJSX = /*#__PURE__*/React.createElement("h1", null, "h1", /*#__PURE__*/React.createElement("h2", null, "h2"));
+var issues = [{
+  id: 1,
+  status: 'New',
+  owner: 'Ravan',
+  effort: 5,
+  created: new Date('2018-08-15'),
+  due: undefined,
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2,
+  status: 'Assigned',
+  owner: 'Eddie',
+  effort: 14,
+  created: new Date('2018-08-16'),
+  due: new Date('2018-08-30'),
+  title: 'Missing bottom boarder on'
+}];
+ReactDOM.render(sillyJSX, document.getElementById('content'));

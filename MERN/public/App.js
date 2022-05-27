@@ -170,5 +170,6 @@ var issues = [{
   created: new Date('2018-08-16'),
   due: new Date('2018-08-30'),
   title: 'Missing bottom boarder on'
-}];
-ReactDOM.render(sillyJSX, document.getElementById('content'));
+}]; //ReactDOM.render(sillyJSX, document.getElementById('content'));
+
+document.getElementById('content').append(JSON.stringify(sillyJSX));

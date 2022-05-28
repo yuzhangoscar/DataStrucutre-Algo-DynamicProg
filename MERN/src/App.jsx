@@ -6,9 +6,17 @@ const IssueFilter = () =>{
     )
 };
 
+const ClickButton = () => {
+    return (
+        <div>
+            <p>Clicked</p>
+        </div>
+    );
+}
+
 const element = <div>
     <IssueFilter />
-    <IssueFilter />
+    <ClickButton />
 </div>;
 
 ReactDOM.render(element, document.getElementById('content'));

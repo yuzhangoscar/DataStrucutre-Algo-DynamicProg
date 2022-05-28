@@ -14,8 +14,8 @@ var ClickButton = function ClickButton() {
 };
 
 var element = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(IssueFilter, {
-  countries: ["a", "b", "c"]
+  countries: ["a", "b", "c", "d"]
 }), /*#__PURE__*/React.createElement(ClickButton, null));
 ReactDOM.render( /*#__PURE__*/React.createElement(IssueFilter, {
-  countries: ["a", "b", "c"]
+  countries: ["a", "b", "c", "d"]
 }), document.getElementById('content'));

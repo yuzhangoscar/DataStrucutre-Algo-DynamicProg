@@ -16,8 +16,8 @@ const ClickButton = () => {
 }
 
 const element = <div>
-    <IssueFilter countries={[`a`, `b`, `c`]}/>
+    <IssueFilter countries={[`a`, `b`, `c`, `d`]}/>
     <ClickButton />
 </div>;
 
-ReactDOM.render(<IssueFilter countries={[`a`, `b`, `c`]}/>, document.getElementById('content'));
+ReactDOM.render(<IssueFilter countries={[`a`, `b`, `c`, `d`]}/>, document.getElementById('content'));

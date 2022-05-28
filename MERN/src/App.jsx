@@ -1,7 +1,8 @@
-const IssueFilter = () =>{
+const IssueFilter = (props) =>{
+    console.log(props.countries);
     return (
         <div>
-            Placeholder for IssueFilter
+            {props.countries.map(countr => <p key={countr}>hello {countr}</p>)}
         </div>
     )
 };
@@ -15,8 +16,8 @@ const ClickButton = () => {
 }
 
 const element = <div>
-    <IssueFilter />
+    <IssueFilter countries={[`a`, `b`, `c`]}/>
     <ClickButton />
 </div>;
 
-ReactDOM.render(element, document.getElementById('content'));
+ReactDOM.render(<IssueFilter countries={[`a`, `b`, `c`]}/>, document.getElementById('content'));

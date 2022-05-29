@@ -1,23 +1,35 @@
-const IssueFilter = (props) =>{
-    console.log(props.countries);
+const IssueFilter = () =>{
     return (
         <div>
-            {props.countries.map(countr => <p key={countr}>hello {countr}</p>)}
+            This is a placeholder for the issue filter
         </div>
     )
 };
 
-const ClickButton = () => {
+const IssueTable = () =>{
     return (
         <div>
-            <p>Clicked</p>
+            This is a placeholder for the issue table
         </div>
-    );
-}
+    )
+};
 
-const element = <div>
-    <IssueFilter countries={[`a`, `b`, `c`, `d`]}/>
-    <ClickButton />
-</div>;
+const IssueAdd = () =>{
+    return (
+        <div>
+            This is a placeholder for the issue add
+        </div>
+    )
+};
 
-ReactDOM.render(<IssueFilter countries={[`a`, `b`, `c`, `d`]}/>, document.getElementById('content'));
+const Element = 
+    <div>
+        <h1>Issue Tracker</h1>
+        <IssueFilter />
+        <hr />
+        <IssueTable />
+        <hr />
+        <IssueAdd />
+    </div>;
+
+ReactDOM.render(Element, document.getElementById('content'));

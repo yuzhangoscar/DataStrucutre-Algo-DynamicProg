@@ -1,21 +1,16 @@
 "use strict";
 
-var IssueFilter = function IssueFilter(props) {
-  console.log(props.countries);
-  return /*#__PURE__*/React.createElement("div", null, props.countries.map(function (countr) {
-    return /*#__PURE__*/React.createElement("p", {
-      key: countr
-    }, "hello ", countr);
-  }));
+var IssueFilter = function IssueFilter() {
+  return /*#__PURE__*/React.createElement("div", null, "This is a placeholder for the issue filter");
 };
 
-var ClickButton = function ClickButton() {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Clicked"));
+var IssueTable = function IssueTable() {
+  return /*#__PURE__*/React.createElement("div", null, "This is a placeholder for the issue table");
 };
 
-var element = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(IssueFilter, {
-  countries: ["a", "b", "c", "d"]
-}), /*#__PURE__*/React.createElement(ClickButton, null));
-ReactDOM.render( /*#__PURE__*/React.createElement(IssueFilter, {
-  countries: ["a", "b", "c", "d"]
-}), document.getElementById('content'));
+var IssueAdd = function IssueAdd() {
+  return /*#__PURE__*/React.createElement("div", null, "This is a placeholder for the issue add");
+};
+
+var Element = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, null));
+ReactDOM.render(Element, document.getElementById('content'));

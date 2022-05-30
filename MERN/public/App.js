@@ -19,12 +19,8 @@ var IssueRow = function IssueRow(props) {
   };
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("td", {
     style: style
-  }, "Issue row id = ", props.id));
+  }, props.children));
 };
 
-var Element = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement(IssueRow, {
-  id: 1
-}), /*#__PURE__*/React.createElement(IssueRow, {
-  id: 2
-}), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, null));
+var Element = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Issue Tracker"), /*#__PURE__*/React.createElement(IssueFilter, null), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueTable, null), /*#__PURE__*/React.createElement(IssueRow, null, "ISSUE ROW id = 1"), /*#__PURE__*/React.createElement(IssueRow, null, "ISSUE ROW id = 2"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(IssueAdd, null));
 ReactDOM.render(Element, document.getElementById('content'));

@@ -26,7 +26,7 @@ const IssueRow = (props) => {
     const style = {border: "1px solid silver", padding: 4};
     return (
         <div>
-            <td style={style}>Issue row id = {props.id}</td>
+            <td style={style}>{props.children}</td>
         </div>
     )
 }
@@ -37,8 +37,8 @@ const Element =
         <IssueFilter />
         <hr />
         <IssueTable />
-        <IssueRow id={1} />
-        <IssueRow id={2} />
+        <IssueRow>ISSUE ROW id = 1</IssueRow>
+        <IssueRow>ISSUE ROW id = 2</IssueRow>
         <hr />
         <IssueAdd />
     </div>;

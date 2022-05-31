@@ -8,7 +8,7 @@ class IssueFilter extends React.Component {
 class IssueTable extends React.Component {
     render() {
         return (
-            <div>This is a placeholder for a table of issues.</div>
+            <IssueRow issue_title="Title of the first issue"/>
         );
     }
 }

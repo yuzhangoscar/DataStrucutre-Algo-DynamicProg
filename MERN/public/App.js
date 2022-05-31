@@ -57,7 +57,9 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "This is a placeholder for a table of issues.");
+      return /*#__PURE__*/React.createElement(IssueRow, {
+        issue_title: "Title of the first issue"
+      });
     }
   }]);
 

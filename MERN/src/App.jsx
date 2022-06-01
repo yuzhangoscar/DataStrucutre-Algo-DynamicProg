@@ -8,7 +8,7 @@ class IssueFilter extends React.Component {
 class IssueTable extends React.Component {
     render() {
         return (
-            <IssueRow issue_title="Title of the first issue"/>
+            <IssueRow issue_title="Title of the first issue" issue_id='1'/>
         );
     }
 }
@@ -16,7 +16,10 @@ class IssueTable extends React.Component {
 class IssueRow extends React.Component {
     render() {
         return (
-            <td>{this.props.issue_title}</td>
+            <tr>
+                <td>{this.props.issue_title}</td>
+                <td>{this.props.issue_id}</td>
+            </tr>
         )
     }
 }

@@ -58,7 +58,8 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement(IssueRow, {
-        issue_title: "Title of the first issue"
+        issue_title: "Title of the first issue",
+        issue_id: "1"
       });
     }
   }]);
@@ -80,7 +81,7 @@ var IssueRow = /*#__PURE__*/function (_React$Component3) {
   _createClass(IssueRow, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("td", null, this.props.issue_title);
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, this.props.issue_title), /*#__PURE__*/React.createElement("td", null, this.props.issue_id));
     }
   }]);
 

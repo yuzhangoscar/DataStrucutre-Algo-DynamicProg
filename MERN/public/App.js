@@ -66,15 +66,36 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
   return IssueTable;
 }(React.Component);
 
-var IssueAdd = /*#__PURE__*/function (_React$Component3) {
-  _inherits(IssueAdd, _React$Component3);
+var IssueRow = /*#__PURE__*/function (_React$Component3) {
+  _inherits(IssueRow, _React$Component3);
 
-  var _super3 = _createSuper(IssueAdd);
+  var _super3 = _createSuper(IssueRow);
+
+  function IssueRow() {
+    _classCallCheck(this, IssueRow);
+
+    return _super3.apply(this, arguments);
+  }
+
+  _createClass(IssueRow, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("td", null, this.props.issue_title);
+    }
+  }]);
+
+  return IssueRow;
+}(React.Component);
+
+var IssueAdd = /*#__PURE__*/function (_React$Component4) {
+  _inherits(IssueAdd, _React$Component4);
+
+  var _super4 = _createSuper(IssueAdd);
 
   function IssueAdd() {
     _classCallCheck(this, IssueAdd);
 
-    return _super3.apply(this, arguments);
+    return _super4.apply(this, arguments);
   }
 
   _createClass(IssueAdd, [{
@@ -87,15 +108,15 @@ var IssueAdd = /*#__PURE__*/function (_React$Component3) {
   return IssueAdd;
 }(React.Component);
 
-var IssueList = /*#__PURE__*/function (_React$Component4) {
-  _inherits(IssueList, _React$Component4);
+var IssueList = /*#__PURE__*/function (_React$Component5) {
+  _inherits(IssueList, _React$Component5);
 
-  var _super4 = _createSuper(IssueList);
+  var _super5 = _createSuper(IssueList);
 
   function IssueList() {
     _classCallCheck(this, IssueList);
 
-    return _super4.apply(this, arguments);
+    return _super5.apply(this, arguments);
   }
 
   _createClass(IssueList, [{

@@ -12,6 +12,15 @@ class IssueTable extends React.Component {
         );
     }
 }
+
+class IssueRow extends React.Component {
+    render() {
+        return (
+            <td>{this.props.issue_title}</td>
+        )
+    }
+}
+
 class IssueAdd extends React.Component {
     render() {
         return (

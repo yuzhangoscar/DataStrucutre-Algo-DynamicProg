@@ -22,6 +22,14 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+var issues = [{
+  id: 1,
+  title: 'a'
+}, {
+  id: 2,
+  title: 'b'
+}];
+
 var IssueFilter = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueFilter, _React$Component);
 
@@ -57,10 +65,14 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement(IssueRow, {
-        issue_title: "Title of the first issue",
-        issue_id: "1"
-      });
+      return (//<IssueRow issue_title="Title of the first issue" issue_id='1'/>
+        issues.map(function (issue) {
+          return /*#__PURE__*/React.createElement(IssueRow, {
+            issue_id: issue.id,
+            issue_title: issue.title
+          });
+        })
+      );
     }
   }]);
 

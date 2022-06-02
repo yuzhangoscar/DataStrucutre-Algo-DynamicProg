@@ -1,3 +1,5 @@
+const issues = [{id:1, title: 'a'},{id:2, title: 'b'}];
+
 class IssueFilter extends React.Component {
     render() {
         return (
@@ -8,7 +10,8 @@ class IssueFilter extends React.Component {
 class IssueTable extends React.Component {
     render() {
         return (
-            <IssueRow issue_title="Title of the first issue" issue_id='1'/>
+            //<IssueRow issue_title="Title of the first issue" issue_id='1'/>
+            issues.map(issue => <IssueRow issue_id={issue.id} issue_title={issue.title}/>)
         );
     }
 }

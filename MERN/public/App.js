@@ -28,6 +28,9 @@ var issues = [{
 }, {
   id: 2,
   title: 'b'
+}, {
+  id: 3,
+  title: 'c'
 }];
 
 var IssueFilter = /*#__PURE__*/function (_React$Component) {
@@ -56,23 +59,30 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
 
   var _super2 = _createSuper(IssueTable);
 
-  function IssueTable() {
+  function IssueTable(props) {
+    var _this;
+
     _classCallCheck(this, IssueTable);
 
-    return _super2.apply(this, arguments);
+    _this = _super2.call(this, props);
+    _this.state = {
+      issues: issues
+    };
+    return _this;
   }
 
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return (//<IssueRow issue_title="Title of the first issue" issue_id='1'/>
-        issues.map(function (issue) {
-          return /*#__PURE__*/React.createElement(IssueRow, {
-            issue_id: issue.id,
-            issue_title: issue.title
-          });
-        })
-      );
+      return /*#__PURE__*/React.createElement("table", {
+        className: "bordered-table"
+      }, /*#__PURE__*/React.createElement("tbody", null, this.state.issues.map(function (issue) {
+        return /*#__PURE__*/React.createElement(IssueRow, {
+          key: issue.id,
+          issue_id: issue.id,
+          issue_title: issue.title
+        });
+      })));
     }
   }]);
 

@@ -66,12 +66,28 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
 
     _this = _super2.call(this, props);
     _this.state = {
-      issues: issues
+      issues: []
     };
     return _this;
   }
 
   _createClass(IssueTable, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.loadData();
+    }
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.setState({
+          issues: issues
+        });
+      }, 500);
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement("table", {

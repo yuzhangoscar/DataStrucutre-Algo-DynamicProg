@@ -10,7 +10,13 @@ class IssueFilter extends React.Component {
 class IssueTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {issues: issues};
+        this.state = {issues: []};
+    }
+    componentDidMount() {
+        this.loadData();
+    }
+    loadData() {
+        setTimeout(() => {this.setState({issues: issues})}, 500);
     }
     render() {
         return (

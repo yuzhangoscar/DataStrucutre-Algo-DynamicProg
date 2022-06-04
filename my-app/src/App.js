@@ -22,9 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <div>
-            {Products.map(product => (<Item icon={product.icon} price={product.price}/>))}
-      </div>
+      {Products.map(product => (<Item className="product" key={product.icon} icon={product.icon} price={product.price}/>))}
     </div>
   );
 }

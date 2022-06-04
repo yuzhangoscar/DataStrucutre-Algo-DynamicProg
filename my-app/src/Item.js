@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './App.css';
 
 class Item extends React.Component {
     constructor(props) {
@@ -11,8 +11,8 @@ class Item extends React.Component {
     }
     render() {
         return (
-            <div>
-                {this.state.icon}
+            <div className='product'>
+                <span role = 'img'>{this.state.icon}</span>
                 {this.state.price}
                 <button>Add</button>
                 <button>Remove</button>

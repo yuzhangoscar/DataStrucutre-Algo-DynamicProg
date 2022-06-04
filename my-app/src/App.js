@@ -28,11 +28,17 @@ class App extends React.Component {
       totalPrice: 0
     }
   }
+
+  handler = () => {
+    console.log(`${this.state}`);
+    this.setState((state, props) => ({totalItem: state.totalItem + 1}));
+  }
+
   render() {
     return (
       <div className="App">
         <Header totalPrice = {this.state.totalPrice} totalItem = {this.state.totalItem}/>
-        {Products.map(product => (<Item className="product" key={product.icon} icon={product.icon} price={product.price}/>))}
+        {Products.map(product => (<Item handler = {this.handler} className="product" key={product.icon} icon={product.icon} price={product.price}/>))}
       </div>
     );
   }

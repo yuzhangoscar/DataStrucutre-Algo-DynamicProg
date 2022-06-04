@@ -11,18 +11,12 @@ class Item extends React.Component {
         }
     }
 
-    add() {
-        this.setState({
-            
-        });
-    }
-
     render() {
         return (
             <div className='product'>
                 <span role = 'img'>{this.state.icon}</span>
                 {this.state.price}
-                <button>Add</button>
+                <button onClick={this.props.handler}>Add</button>
                 <button>Remove</button>
             </div>
         )

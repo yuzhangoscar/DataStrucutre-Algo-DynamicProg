@@ -6,9 +6,17 @@ class Item extends React.Component {
         super(props);
         this.state = {
             icon: this.props.icon,
-            price: this.props.price
+            price: this.props.price,
+            total: 0
         }
     }
+
+    add() {
+        this.setState({
+            
+        });
+    }
+
     render() {
         return (
             <div className='product'>

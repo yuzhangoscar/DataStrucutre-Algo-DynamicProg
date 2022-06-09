@@ -3,8 +3,11 @@
         <title>PHP Test</title>
     </head>
     <body>
-        <?php echo $_SERVER['DOCUMENT_ROOT'] ?> 
-        <?php echo $_SERVER['SERVER_NAME'] ?> 
-        <?php echo "hello" ?>
+        <?php
+            $username = "fred";
+            echo $username;
+            echo "<br>";
+            echo $username;
+        ?>
     </body>
 </html>

@@ -1,3 +1,7 @@
+<?php 
+        namespace mySpace;
+?>
+
 <html>
     <head>
         <title>PHP Test</title>

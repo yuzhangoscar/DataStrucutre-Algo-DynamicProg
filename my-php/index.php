@@ -1,28 +1,17 @@
 <?php 
-        namespace mySpace;
+    namespace mySpace;
+    echo <<<_END
+        <html>
+            <head>
+                <title>PHP Test</title>
+            </head>
+            <body>
+                <form method="post" action="formtest.php">
+                    what is yoru name?
+                    <input type="text" name="name">
+                    <input type="submit">
+                </form>
+            </body>
+        </html>
+_END;
 ?>
-
-<html>
-    <head>
-        <title>PHP Test</title>
-    </head>
-    <body>
-        <?php
-            function longdate() {
-                return date("l F jS Y");
-            }
-            $username = "fred";
-            echo $username;
-            echo "<br>";
-            $aaa = __NAMESPACE__;
-            echo __LINE__;
-            echo __FUNCTION__;
-            echo "<br>";
-            echo __DIR__;
-            echo "<br>";
-            echo "<h1>THIS is the line " . __NAMESPACE__ . $_SERVER['SERVER_SOFTWARE']; "</h1>";
-            echo "<br>";
-            echo longdate();
-        ?>
-    </body>
-</html>

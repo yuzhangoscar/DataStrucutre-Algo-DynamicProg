@@ -13,9 +13,12 @@
                 Your name is: $name<br>
                 <form method="post" action="index.php">
                     what is yoru name?
-                    <input type="text" name="name">
+                    <input type="text" name="name" value="yz">
                     <input type="submit">
                 </form>
+                <textarea name="text" cols="100" rows="5" wrap="type">
+                    this is default text
+                </textarea>
             </body>
         </html>
 _END;

@@ -20,7 +20,7 @@
             echo "<br>";
             echo __DIR__;
             echo "<br>";
-            echo "<h1>THIS is the line " . __NAMESPACE__ . "</h1>";
+            echo "<h1>THIS is the line " . __NAMESPACE__ . $_SERVER['SERVER_SOFTWARE']; "</h1>";
             echo "<br>";
             echo longdate();
         ?>

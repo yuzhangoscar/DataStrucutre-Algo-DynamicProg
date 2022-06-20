@@ -24,6 +24,10 @@
                 8am-Noon<input type="radio" name="time" value="3">
                 A<input type="radio" name="location" value="1">
                 B<input type="radio" name="location" value="2">
+                <br>
+                <select name="name" size="1">
+                    <option value="Peas">peas</option>
+                    <option value="beans">beans</option>
             </body>
         </html>
 _END;

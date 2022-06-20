@@ -22,6 +22,8 @@
                 8am-Noon<input type="radio" name="time" value="1">
                 8am-Noon<input type="radio" name="time" value="2" checked="checked">
                 8am-Noon<input type="radio" name="time" value="3">
+                A<input type="radio" name="location" value="1">
+                B<input type="radio" name="location" value="2">
             </body>
         </html>
 _END;

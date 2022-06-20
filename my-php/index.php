@@ -19,6 +19,7 @@
                 <textarea name="text" cols="100" rows="5" wrap="type">
                     this is default text
                 </textarea>
+                8am-Noon<input type="radio" name="time" value="1">
             </body>
         </html>
 _END;

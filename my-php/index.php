@@ -20,6 +20,8 @@
                     this is default text
                 </textarea>
                 8am-Noon<input type="radio" name="time" value="1">
+                8am-Noon<input type="radio" name="time" value="2" checked="checked">
+                8am-Noon<input type="radio" name="time" value="3">
             </body>
         </html>
 _END;

@@ -12,11 +12,11 @@
             <body>
                 Your name is: $name<br>
                 <form method="post" action="index.php">
-                    what is yoru name?
-                    <input type="text" name="name" value="yz">
-                    <input type="submit">
+                    type in temperature in Fahrenheit and click Convert
+                    <input type="text" name="f" value="0" size="10">
+                    <br>
+                    <input type="submit" value="Convert">
                 </form>
-                <input type="submit" value="Search">
             </body>
         </html>
 _END;

@@ -1,6 +1,7 @@
 <?php 
     if (isset($_POST['f'])) $temp=sanitizeString($_POST['f']) * 2.1;
     else $temp = "0";
+    $date = date("Y/m/d");
 
     echo <<<_END
         <html>
@@ -8,7 +9,8 @@
                 <title>PHP Test</title>
             </head>
             <body>
-                Current temperature in Celsius is: $temp degree<br>
+                <h1>Today is:  $date Welcome to Lily's study tracker</h1> 
+                <br>
                 <form method="post" action="index.php">
                     type in temperature in Fahrenheit and click Convert
                     <input type="text" name="f" size="10" placeholder="Fer" required="required">

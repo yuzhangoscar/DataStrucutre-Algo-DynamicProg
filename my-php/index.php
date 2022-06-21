@@ -1,8 +1,6 @@
 <?php 
-    namespace mySpace;
-
-    if (isset($_POST['name'])) $name=$_POST['name'];
-    else $name = "(NOT PROVIDED)";
+    if (isset($_POST['f'])) $temp=sanitizeString($_POST['f']) * 2.1;
+    else $temp = "0";
 
     echo <<<_END
         <html>
@@ -10,14 +8,20 @@
                 <title>PHP Test</title>
             </head>
             <body>
-                Your name is: $name<br>
+                Current temperature in Celsius is: $temp degree<br>
                 <form method="post" action="index.php">
                     type in temperature in Fahrenheit and click Convert
-                    <input type="text" name="f" value="0" size="10">
+                    <input type="text" name="f" size="10" placeholder="Fer" required="required">
                     <br>
                     <input type="submit" value="Convert">
                 </form>
             </body>
         </html>
 _END;
+
+    function sanitizeString($var) {
+        $var = strip_tags($var);
+        $var = htmlentities($var);
+        return $var;
+    }
 ?>

@@ -10,4 +10,8 @@ let secondPromise = function(data) {
     })
 }
 
-firstPromise.then();
+let consumer = function(data) {
+    console.log(`received data is ${data}`);
+}
+
+firstPromise().then(secondPromise).then(consumer);

@@ -1,17 +1,12 @@
-let firstPromise = function() {
+let promiseOne = () => {
     return new Promise((resolve, reject) => {
-        resolve('firstPromise has been resolved.');
-    })
+        setTimeout(() => reject(`promiseOne is rejected.`), 1000);
+    });
 }
 
-let secondPromise = function(data) {
-    return new Promise((resolve, reject) => {
-        resolve(`secondPromise has been resolved with ${data}`);
-    })
-}
+let log = (data) => console.log(data);
 
-let consumer = function(data) {
-    console.log(`received data is ${data}`);
-}
-
-firstPromise().then(secondPromise).then(consumer);
+promiseOne()
+    .then(() => console.log('resolved'))
+    .catch(() => console.log('rejected'))
+    .then(() => console.log(`resolved from rejected`));

@@ -10,9 +10,7 @@ button.addEventListener('click', () => {
 
     document.body.style.backgroundColor='rgb('+ R + ', '+ G + ', '+ B + ')';
     text.textContent = `RGB(${R}, ${G}, ${B})`;
-    requestAnimationFrame(() => {
-
-    });
+    console.log(`new color code should be ${R}, ${G}, ${B}`);
 });
 
 function generateRandomNumber(max) {

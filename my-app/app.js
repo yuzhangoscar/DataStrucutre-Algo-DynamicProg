@@ -1,10 +1,18 @@
 let button = document.getElementById('btn');
+let text = document.getElementsByClassName('color');
 
-console.log(button);
+console.log(text);
 
 button.addEventListener('click', () => {
-    console.log(`clicked`);
-    document.body.style.backgroundColor='rgb('+ generateRandomNumber(255) + ', '+ generateRandomNumber(255) + ', '+ generateRandomNumber(255) + ')';
+    let R = generateRandomNumber(255);
+    let G = generateRandomNumber(255);
+    let B = generateRandomNumber(255);
+
+    document.body.style.backgroundColor='rgb('+ R + ', '+ G + ', '+ B + ')';
+    text.textContent = `RGB(${R}, ${G}, ${B})`;
+    requestAnimationFrame(() => {
+
+    });
 });
 
 function generateRandomNumber(max) {

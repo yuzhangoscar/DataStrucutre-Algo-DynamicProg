@@ -7,10 +7,10 @@ button.addEventListener('click', () => {
     let R = generateRandomNumber(255);
     let G = generateRandomNumber(255);
     let B = generateRandomNumber(255);
-
+    
+    console.log('clicked');
     document.body.style.backgroundColor='rgb('+ R + ', '+ G + ', '+ B + ')';
     text.textContent = `RGB(${R}, ${G}, ${B})`;
-    console.log('clicked');
     console.log(`new color code should be ${R}, ${G}, ${B}`);
 });
 

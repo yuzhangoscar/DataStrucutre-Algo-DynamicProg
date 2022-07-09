@@ -5,19 +5,11 @@
 }
 
 body{
-    background-image: linear-gradient(120deg, #f6d365, #fda085);
-    color: white;
-    font-family: "Poppins", sans-serif;
-    min-height: 100vh;
+    background-color: white;
 }
 
 header{
     font-size: 1rem
-}
-
-button, .container {
-    position: relative;
-    left: 50%;
 }
 
 button {
@@ -30,10 +22,10 @@ button {
 }
 
 button:hover {
-    background: #d88771;
+    background: #b68a7d;
     color: white;
 }
 
 button:active {
-    background-color: #f6d365;
+    background-color: #181305;
 }

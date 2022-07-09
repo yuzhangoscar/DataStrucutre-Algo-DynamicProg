@@ -1,12 +1,16 @@
-let promiseOne = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => reject(`promiseOne is rejected.`), 1000);
-    });
-}
+let button = document.getElementById('btn');
 
-let log = (data) => console.log(data);
+console.log(button);
 
-promiseOne()
-    .then(() => console.log('resolved'))
-    .catch(() => console.log('rejected'))
-    .then(() => console.log(`resolved from rejected`));
+button.addEventListener('click', () => {
+    console.log(`clicked`);
+    document.body.style.backgroundColor='rgb('+ generateRandomNumber(255) + ', '+ generateRandomNumber(255) + ', '+ generateRandomNumber(255) + ')';
+});
+
+function generateRandomNumber(max) {
+    let rand = Math.random() * max;
+
+    rand=Math.floor(rand);
+
+    return rand;
+};

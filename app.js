@@ -1,13 +1,15 @@
-const URLs = ['https://www.google.com', 'https://www.github.com'];
-const axios = require('axios');
+const firstName = 'yuzzhangoscar';
+const firstNameArray = Array.from(firstName, element => console.log(`current element is ${element}`));
 
-const requestServerFromMultipleURLs = () => {
-    const requestFromSingleURL = url => axios(url);
-    const promises = URLs.map(requestFromSingleURL);
+const jedi = {
+    name: 'yoda',
+    job: 'jedi',
+    age: 100
+};
 
-    Promise.all(promises).then(
-        responses => responses.forEach(response => console.log(response.headers.server))
-    );
-}
+Object.keys(jedi).forEach(function(key)  {
+    console.log(`value is ${this[key]}`)}, jedi);
 
-requestServerFromMultipleURLs();
+console.log(Array.from(firstName, (v, i) => {
+    console.log(`${v} and ${i}`);
+}));

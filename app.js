@@ -1,11 +1,13 @@
-const elements = document.getElementsByTagName('h1');
-const button = document.getElementById('btn');
+const URLs = ['https://www.google.com', 'https://www.github.com'];
+const axios = require('axios');
 
-function buttonEventHandler() {
-    let index = elements.length;
-    for (let i = index - 1; i >= 0; i--) {
-        elements[i].innerHTML = 'hhh';
-    }
+const requestServerFromMultipleURLs = () => {
+    const requestFromSingleURL = url => axios(url);
+    const promises = URLs.map(requestFromSingleURL);
+
+    Promise.all(promises).then(
+        responses => responses.forEach(response => console.log(response.headers.server))
+    );
 }
 
-button.addEventListener('click', buttonEventHandler);
+requestServerFromMultipleURLs();

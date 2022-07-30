@@ -1,15 +1,27 @@
-const firstName = 'yuzzhangoscar';
-const firstNameArray = Array.from(firstName, element => console.log(`current element is ${element}`));
+const a  = 'global';
 
-const jedi = {
-    name: 'yoda',
-    job: 'jedi',
-    age: 100
-};
+function printA() {
+    console.log(this.a);
+}
 
-Object.keys(jedi).forEach(function(key)  {
-    console.log(`value is ${this[key]}`)}, jedi);
+printA();
 
-console.log(Array.from(firstName, (v, i) => {
-    console.log(`${v} and ${i}`);
-}));
+const objectB = {
+    a:'within objectB',
+    func: function() {console.log(this.a)}
+}
+
+objectB.func();
+
+setTimeout(objectB.func, 1000);
+
+const objectC = {
+    a:'within objectC',
+    thisArrowFunction: null,
+    func:function(){
+        this.thisArrowFunction = () => console.log(this.a)
+    }
+}
+
+objectC.func();
+objectC.thisArrowFunction();

@@ -1,27 +1,23 @@
-const a  = 'global';
-
-function printA() {
-    console.log(this.a);
+function genericFunc(a) {
+    return `inside of genericFunc, input is ${a}, and this.a is ${this.a}`;
 }
 
-printA();
-
-const objectB = {
-    a:'within objectB',
-    func: function() {console.log(this.a)}
+const objectA = {
+    a: 9
 }
 
-objectB.func();
-
-setTimeout(objectB.func, 1000);
-
-const objectC = {
-    a:'within objectC',
-    thisArrowFunction: null,
-    func:function(){
-        this.thisArrowFunction = () => console.log(this.a)
+function bind(fn, obj) {
+    return function() {
+        return fn.call(obj, arguments);
     }
 }
 
-objectC.func();
-objectC.thisArrowFunction();
+const boundFunc = bind(genericFunc, objectA);
+console.log(boundFunc(5));
+
+// function hardbind() {
+//     return genericFunc.apply(objectA, arguments);
+// }
+
+// const newHardbindFunc = hardbind(5);
+// console.log(newHardbindFunc);

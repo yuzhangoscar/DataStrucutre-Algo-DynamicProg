@@ -1,23 +1,15 @@
-function genericFunc(a) {
-    return `inside of genericFunc, input is ${a}, and this.a is ${this.a}`;
+function originalFunc (input) {
+    return this.a + input;
 }
 
 const objectA = {
-    a: 9
+    a: 9.9
 }
 
-function bind(fn, obj) {
-    return function() {
-        return fn.call(obj, arguments);
-    }
+function wrapper() {
+    return originalFunc.apply(objectA, arguments);
 }
 
-const boundFunc = bind(genericFunc, objectA);
-console.log(boundFunc(5));
+let result = wrapper(1);
 
-// function hardbind() {
-//     return genericFunc.apply(objectA, arguments);
-// }
-
-// const newHardbindFunc = hardbind(5);
-// console.log(newHardbindFunc);
+console.log(result);

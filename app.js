@@ -1,15 +1,11 @@
-function originalFunc (input) {
-    return this.a + input;
-}
+const simplePlan = `
+.................
+..#...........#..
+..#.........=.#..
+`;
 
-const objectA = {
-    a: 9.9
-}
+let rows = simplePlan.trim().split('\n').map(l=>[...l]);
 
-function wrapper() {
-    return originalFunc.apply(objectA, arguments);
-}
+console.log(rows);
 
-let result = wrapper(1);
-
-console.log(result);
+console.log(Object.prototype.toString.call(rows));

@@ -1,17 +1,20 @@
-class User {
-    firstName = "John";
-    lastName = "Doe";
+import {timedPromise} from './support.js';
 
-    get random() {
-        console.log(`random getter`);
+class MyClass {
+    name = 'yz';
+
+    set Name(value) {
+        this.name = value;
     }
 
-    set random(input) {
-        console.log(`random setter, setting ${input}`);
+    get Name() {
+        return this.name;
     }
 }
 
-const newUser = new User();
+const newClass = new MyClass();
 
-newUser.random;
-newUser.random = 4.4;
+console.log(newClass.Name);
+newClass.Name = 'zzz';
+console.log(newClass.Name);
+timedPromise(1000).then((result) => console.log(result));

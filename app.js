@@ -1,20 +1,11 @@
-import {timedPromise} from './support.js';
+function Ninja() {
 
-class MyClass {
-    name = 'yz';
-
-    set Name(value) {
-        this.name = value;
-    }
-
-    get Name() {
-        return this.name;
-    }
 }
 
-const newClass = new MyClass();
+const ninjaOne = new Ninja();
 
-console.log(newClass.Name);
-newClass.Name = 'zzz';
-console.log(newClass.Name);
-timedPromise(1000).then((result) => console.log(result));
+Ninja.prototype.swingSword = function() {
+    console.log('ninja swings a sword.');
+};
+
+ninjaOne.swingSword();

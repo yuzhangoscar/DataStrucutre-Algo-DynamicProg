@@ -1,14 +1,31 @@
-function Ninja() {
-    this.swing = 9,9
+const uniqueFunctionStorage = {
+    id: 1,
+    store: function(fn) {
+        console.log(`fn.id is ${fn.id}`);
+        if (!fn.id) {
+            fn.id = this.id++;
+            console.log(`new function stored`);
+        }
+        else
+            console.log(`function already stored`);
+    }
 }
 
-const ninjaOne = new Ninja();
+function One() {};
+function Two() {};
 
-Ninja.prototype.swingSword = function() {
-    console.log('ninja swings a sword.');
-};
+console.log(One.id);
+uniqueFunctionStorage.store(One);
+console.log(One.id);
+uniqueFunctionStorage.store(One);
+console.log(One.id);
+uniqueFunctionStorage.store(Two);
+console.log(Two.id);
 
-const ninjaTwo = new ninjaOne.constructor();
+if(0) {
+    console.log(`0 is true`);
+}
 
-console.log(ninjaTwo);
-console.log(ninjaTwo.swing);
+if(!0) {
+    console.log(`0 is false`);
+}

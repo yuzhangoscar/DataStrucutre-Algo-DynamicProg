@@ -1,5 +1,14 @@
-const newPromise = new Promise((resolve, reject) => {
-    setTimeout(()=>console.log(1), 1000);
-});
+let outerReferenceToInnerFunction = null;
 
-newPromise.then(result => console.log(result));
+function outerFunction() {
+    const varLocalToOuterFunction = 9.9;
+
+    function innerFunction() {
+        console.log(varLocalToOuterFunction);
+    }
+
+    outerReferenceToInnerFunction = innerFunction;
+}
+
+outerFunction();
+outerReferenceToInnerFunction();

@@ -1,18 +1,13 @@
-// const HiH1 = document.getElementById('hi');
-// const Button = document.getElementById('btn');
-
-function animate(id){
-    let count = 0;
-    let element = document.getElementById(id);
-    const action = setInterval(() => {
-        console.log(`current count is: ${count}, element is ${id}`);
-        count++; 
-        if (count >= 100) {
-            clearInterval(action);
-        }
-        element.style.left = element.style.top = count + "px";
-    }, 10);
+function fn() {
+    var visibleVar = 9.9;
+    for (var index = 0; index < 4; index++) {
+        var anotherVisibleVar = 8.8;
+        let invisibleVar = 7.7;
+        const anotherInvisibleVar = 6.6;
+    }
+    console.log(anotherVisibleVar);
+    //console.log(invisibleVar);
+    console.log(anotherInvisibleVar);
 }
 
-animate('hi');
-animate('btn');
+fn();

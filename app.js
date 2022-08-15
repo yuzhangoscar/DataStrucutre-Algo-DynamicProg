@@ -1,6 +1,9 @@
-var globalVar = 'global var';
-for (let index = 0; index < 10; index++) {
-    let letVar = 'letVar';
-    const constVar = 'constVar';
+function fn(a,b,c) {
+    console.log(a+b+c);
 }
-console.log(`can see ${globalVar}, but cannot see ${letVar} or ${constVar}`);
+
+const partialFn = function(a, b) {
+    return fn(a,b,10);
+}
+
+partialFn(1,2);

@@ -1,9 +1,12 @@
-function* weaponGenerator() {
-    yield 'gun';
-    yield 'rifle';
-    yield 'big gun';
+function* idGenerator() {
+    let id = 1;
+    while(true) {
+        yield id++;
+    }
 }
+const ids = idGenerator();
 
-for (let weapon of weaponGenerator()){
-    console.log(weapon);
-}
+let firstID = ids.next();
+let sectondID = ids.next();
+let thirdID = ids.next();
+console.log(firstID, sectondID, thirdID);

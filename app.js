@@ -1,9 +1,9 @@
-function fn(a,b,c) {
-    console.log(a+b+c);
+function* weaponGenerator() {
+    yield 'gun';
+    yield 'rifle';
+    yield 'big gun';
 }
 
-const partialFn = function(a, b) {
-    return fn(a,b,10);
+for (let weapon of weaponGenerator()){
+    console.log(weapon);
 }
-
-partialFn(1,2);

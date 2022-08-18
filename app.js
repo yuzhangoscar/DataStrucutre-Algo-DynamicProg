@@ -1,14 +1,14 @@
-function remember(input) {
-    if(!remember.storage) {
-        remember.storage = {};
+function privateVarStorage() {
+    let privateCount = 0;
+    this.getCount = function() {
+        return privateCount;
     }
-    if(!remember.storage[input]) {
-        remember.storage[input] = true;
-        console.log(`a new entry was saved.`);
+    this.setCount = function(input) {
+        privateCount = input;
     }
-    else console.log(`this entry has been saved before`);
 }
 
-remember(1);
-remember(2);
-remember(1);
+const one = new privateVarStorage();
+console.log(one.getCount());
+one.setCount(1);
+console.log(one.getCount());

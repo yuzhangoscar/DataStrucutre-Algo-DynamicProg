@@ -1,9 +1,5 @@
-function recursive(number) {
-    if (number > 0) {
-        console.log(number);
-        number--;
-        recursive(number);
-    }
-}
+const newPromise = new Promise((resolve, reject) => {
+    resolve(9.9);
+})
 
-recursive(10);
+newPromise.then((result) => console.log(result));

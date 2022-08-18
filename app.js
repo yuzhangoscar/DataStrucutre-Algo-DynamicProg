@@ -1,8 +1,19 @@
-const newPromise = new Promise((resolve, reject) => {
-    //resolve(9.9);
-    reject(8.8);
-})
+const storage = {
+    id: 1,
+    store:[],
+    save: function(fn) {
+        if(!fn.id) {
+            fn.id = this.id++;
+            this.store.push(fn);
+            console.log(`a new function was added.`);
+        }
+        else console.log(`function already saved.`);
+    }
+}
 
-newPromise.then(
-    (result) => console.log(result)
-).catch((reason)=>console.log(reason));
+function fnOne() {};
+function fnTwo() {};
+
+storage.save(fnOne);
+storage.save(fnOne);
+storage.save(fnTwo);

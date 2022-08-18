@@ -4,6 +4,5 @@ const newPromise = new Promise((resolve, reject) => {
 })
 
 newPromise.then(
-    (result) => console.log(result),
-    (reason) => console.log(reason)
-);
+    (result) => console.log(result)
+).catch((reason)=>console.log(reason));

@@ -1,14 +1,13 @@
-function privateVarStorage() {
-    let privateCount = 0;
-    this.getCount = function() {
-        return privateCount;
-    }
-    this.setCount = function(input) {
-        privateCount = input;
-    }
+function utilityFn(input) {
+    let count = 0;
+    let message = `welcome ${input}`;
+
+    const id = setInterval(()=>{
+        console.log(message);
+        count++;
+        console.log(count);
+    },5000);
 }
 
-const one = new privateVarStorage();
-console.log(one.getCount());
-one.setCount(1);
-console.log(one.getCount());
+utilityFn(`h`);
+utilityFn(`j`);

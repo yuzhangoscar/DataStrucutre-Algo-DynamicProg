@@ -1,10 +1,13 @@
-function Ninja() {
-    this.swingSword = function() {
-        console.log(`swing sword`);
+function outerFn() {
+    let outerFnVar = 8.8;
+
+    function innerFn() {
+        console.log(outerFnVar);
     }
+
+    return innerFn;
 }
 
-const ninjaOne = new Ninja();
-ninjaOne.swingSword();
-console.log(Ninja.prototype.constructor);
-console.log(ninjaOne.__prototype__);
+const newFn = outerFn();
+
+newFn();

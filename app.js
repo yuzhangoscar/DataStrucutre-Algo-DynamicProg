@@ -1,31 +1,18 @@
-class Ninja {
-    jump = 0;
-    shoot = 0;
-    constructor(j, s) {
-        this.jump = j;
-        this.shoot = s;
-    }
-    get GetJump() {
-        return this.jump;
-    }
+const myObj = {
+    jump: 8
+}
 
-    set SetJump(input) {
-        this.jump = input;
-    }
+function fn() {
+    console.log(this.jump);
+}
 
-    get GetShoot() {
-        return this.shoot;
-    }
-
-    set SetShoot(input) {
-        this.shoot = input;
+function helperBinder(f, ob) {
+    return function() {
+        console.log(`this is a modified wrapper`);
+        return f.call(myObj, arguments);
     }
 }
 
-const ninjaOne = new Ninja(1.1, 2.2);
-console.log(ninjaOne.GetJump);
-console.log(ninjaOne.GetShoot);
-ninjaOne.SetJump = 3.3;
-ninjaOne.SetShoot = 4.4;
-console.log(ninjaOne.GetJump);
-console.log(ninjaOne.GetShoot);
+const newBoundFn = helperBinder(fn, myObj);
+
+newBoundFn(1,2,3);

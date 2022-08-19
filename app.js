@@ -1,18 +1,10 @@
-const myObj = {
-    jump: 8
-}
-
-function fn() {
-    console.log(this.jump);
-}
-
-function helperBinder(f, ob) {
-    return function() {
-        console.log(`this is a modified wrapper`);
-        return f.call(myObj, arguments);
+function Ninja() {
+    this.swingSword = function() {
+        console.log(`swing sword`);
     }
 }
 
-const newBoundFn = helperBinder(fn, myObj);
-
-newBoundFn(1,2,3);
+const ninjaOne = new Ninja();
+ninjaOne.swingSword();
+console.log(Ninja.prototype.constructor);
+console.log(ninjaOne.__prototype__);

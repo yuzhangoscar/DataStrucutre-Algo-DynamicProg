@@ -6,4 +6,4 @@ const ninja = {
     whatisthis: fn
 }
 
-console.log(ninja.whatisthis()===ninja);
+console.log(ninja.whatisthis()===ninja); 

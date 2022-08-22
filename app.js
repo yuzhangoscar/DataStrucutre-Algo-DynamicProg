@@ -1,3 +1,4 @@
-const all = (arr, fn = Boolean) => arr.every(fn);
+const allEqual = arr => arr.every(val => val === arr[0]);
 
-console.log(all([1,2,3,4,false], (element)=>element!==0));
+console.log(allEqual([2,2,2,2]));
+console.log(allEqual([2,2,2,2,3]));

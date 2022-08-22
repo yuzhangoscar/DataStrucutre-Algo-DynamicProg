@@ -1,9 +1,3 @@
-const fn = function() {
-    return this;
-}
+const all = (arr, fn = Boolean) => arr.every(fn);
 
-const ninja = {
-    whatisthis: fn
-}
-
-console.log(ninja.whatisthis()===ninja); 
+console.log(all([1,2,3,4,false], (element)=>element!==0));

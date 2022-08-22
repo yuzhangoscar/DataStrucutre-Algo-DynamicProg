@@ -1,10 +1,10 @@
-const attempt = (fn, ...args) => {
-    try{
-        return fn(...args);
-    }
-    catch(e) {
-        return e instanceof Error ? e : new Error(e);
+const btn = document.getElementById('btn');
+const button = {
+    clicked: false,
+    click: function(){
+        this.clicked = true;
+        console.log(`button clicked is: ${button.clicked}, this clicked is: ${this.clicked}`);
     }
 }
 
-attempt((input) => {new Error()}, 1);
+btn.addEventListener('click', button.click);

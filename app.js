@@ -1,4 +1,3 @@
-const allEqual = arr => arr.every(val => val === arr[0]);
+const approximatelyEqualWithinEpsilon = (a, b, Epsilon = 0.5) => Math.abs(a - b) < Epsilon;
 
-console.log(allEqual([2,2,2,2]));
-console.log(allEqual([2,2,2,2,3]));
+console.log(approximatelyEqualWithinEpsilon(1,1.6));

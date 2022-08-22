@@ -1,10 +1,14 @@
-const btn = document.getElementById('btn');
-const button = {
-    clicked: false,
-    click: function(){
-        this.clicked = true;
-        console.log(`button clicked is: ${button.clicked}, this clicked is: ${this.clicked}`);
+function sum() {
+    this.result = 0;
+    for (let value of arguments) {
+        this.result += value;
     }
 }
 
-btn.addEventListener('click', button.click);
+const ninjaOne = {};
+const ninjaTwo = {};
+
+sum.apply(ninjaOne, [1,2,3,4]);
+console.log(ninjaOne.result);
+sum.apply(ninjaTwo, [1,2,3,4,5]);
+console.log(ninjaTwo.result);

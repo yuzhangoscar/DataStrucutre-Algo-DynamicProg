@@ -1,3 +1,10 @@
-const approximatelyEqualWithinEpsilon = (a, b, Epsilon = 0.5) => Math.abs(a - b) < Epsilon;
+const attempt = (fn, ...args) => {
+    try{
+        return fn(...args);
+    }
+    catch(e) {
+        return e instanceof Error ? e : new Error(e);
+    }
+}
 
-console.log(approximatelyEqualWithinEpsilon(1,1.6));
+attempt((input) => {new Error()}, 1);

@@ -1,9 +1,3 @@
-function hoist(){
-    a = 1;
-    var b = 0;
-}
+console.log(hoist);
 
-hoist();
-
-//console.log(a);
-console.log(b);
+var hoist = 1;

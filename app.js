@@ -1,14 +1,9 @@
-function sum() {
-    this.result = 0;
-    for (let value of arguments) {
-        this.result += value;
-    }
+function hoist(){
+    a = 1;
+    var b = 0;
 }
 
-const ninjaOne = {};
-const ninjaTwo = {};
+hoist();
 
-sum.apply(ninjaOne, [1,2,3,4]);
-console.log(ninjaOne.result);
-sum.apply(ninjaTwo, [1,2,3,4,5]);
-console.log(ninjaTwo.result);
+//console.log(a);
+console.log(b);

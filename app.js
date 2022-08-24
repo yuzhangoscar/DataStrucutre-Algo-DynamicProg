@@ -1,12 +1,15 @@
 function Ninja() {
-    this.swung = false;
 }
-Ninja.prototype.swing = function() {
-    console.log('swing');
-    this.swung = true;
-}
-
 const ninjaOne = new Ninja();
-console.log(ninjaOne.swung);
-ninjaOne.swing();
-console.log(ninjaOne.swung);
+Ninja.prototype.swing = function() {
+    console.log(`swing`);
+}
+ninjaOne.swing(); //swing
+Ninja.prototype = {
+    pierce: function(){console.log(`pierce`);}
+}
+const ninjaTwo = new Ninja();
+ninjaOne.swing(); //swing
+ninjaTwo.swing(); //TypeError, not a function
+ninjaOne.pierce(); //TypeError, not a function
+ninjaTwo.pierce(); //pierce

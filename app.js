@@ -1,15 +1,12 @@
-function scope() {
-    let radius = 9.9;
-    const shape = {
-            radius: 10,
-            diameter() {
-            return this.radius * 2;
-            },
-            perimeter: () => 2 * Math.PI * this.radius,
-    };
-
-    console.log(shape.diameter());
-    console.log(shape.perimeter());
+function Ninja() {
+    this.swung = false;
+    Ninja.prototype.swing = function() {
+        console.log('swing');
+        this.swung = true;
+    }
 }
 
-scope();
+const ninjaOne = new Ninja();
+console.log(ninjaOne.swung);
+ninjaOne.swing();
+console.log(ninjaOne.swung);

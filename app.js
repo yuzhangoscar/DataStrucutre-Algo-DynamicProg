@@ -1,15 +1,5 @@
-function Ninja() {
-}
-const ninjaOne = new Ninja();
-Ninja.prototype.swing = function() {
-    console.log(`swing`);
-}
-ninjaOne.swing(); //swing
-Ninja.prototype = {
-    pierce: function(){console.log(`pierce`);}
-}
-const ninjaTwo = new Ninja();
-ninjaOne.swing(); //swing
-ninjaTwo.swing(); //TypeError, not a function
-ninjaOne.pierce(); //TypeError, not a function
-ninjaTwo.pierce(); //pierce
+const arrayOne = [1,2,3];
+const arrayTwo = [4,5,6];
+
+const newArray = arrayOne.concat(arrayTwo);
+console.log(newArray);

@@ -1,22 +1,32 @@
 class Person {
     name = null;
-    age = 0;
+    age = null;
 
-    constructor(n, a) {
+    constructor(n, a){
         this.name = n;
         this.age = a;
+    };
+
+    set Name(value) {
+        this.name = value;
     }
-    greeting() {
-        console.log(`greeting.`);
-    }
-    set setAge(value) {
-        this.age = value;
-    }
-    get getAge() {
-        return this.age;
+    get Name() {
+        return this.name;
     }
 }
 
-const personOne = new Person(`joe`, 1);
-personOne.setAge = 2;
-console.log(personOne.getAge);
+class Ninja extends Person {
+    weapon = null;
+
+    constructor(n, a, w) {
+        super(n, a);
+        this.weapon = w;
+    }
+
+    get Weapon() {
+        return this.weapon + this.name + this.age;
+    }
+}
+
+const ninjaOne = new Ninja(`john`, 1, `sword`);
+console.log(ninjaOne.Weapon);

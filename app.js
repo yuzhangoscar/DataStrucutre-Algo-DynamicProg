@@ -1,5 +1,22 @@
-const arrayOne = [1,2,3];
-const arrayTwo = [4,5,6];
+class Person {
+    name = null;
+    age = 0;
 
-const newArray = arrayOne.concat(arrayTwo);
-console.log(newArray);
+    constructor(n, a) {
+        this.name = n;
+        this.age = a;
+    }
+    greeting() {
+        console.log(`greeting.`);
+    }
+    set setAge(value) {
+        this.age = value;
+    }
+    get getAge() {
+        return this.age;
+    }
+}
+
+const personOne = new Person(`joe`, 1);
+personOne.setAge = 2;
+console.log(personOne.getAge);

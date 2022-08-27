@@ -1,8 +1,13 @@
 const obj = {
     name: null,
-    set Name(value) {this.name = value},
-    get Name() {return this.name}
+    set Name(value) {
+        this.name = value;
+    },
+    get Name() {
+        return this.name;
+    }
 }
 
-obj.Name = 'joe';
+console.log(obj.Name);
+obj.Name='y';
 console.log(obj.Name);

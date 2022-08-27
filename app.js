@@ -1,12 +1,10 @@
 class Person {
     name = null;
     age = null;
-
-    constructor(n, a){
+    constructor(n, a) {
         this.name = n;
         this.age = a;
-    };
-
+    }
     set Name(value) {
         this.name = value;
     }
@@ -16,17 +14,11 @@ class Person {
 }
 
 class Ninja extends Person {
-    weapon = null;
-
-    constructor(n, a, w) {
+    constructor(n, a){
         super(n, a);
-        this.weapon = w;
-    }
-
-    get Weapon() {
-        return this.weapon + this.name + this.age;
     }
 }
 
-const ninjaOne = new Ninja(`john`, 1, `sword`);
-console.log(ninjaOne.Weapon);
+const ninjaOne = new Ninja(`a`, 9);
+ninjaOne.Name = `aa`;
+console.log(ninjaOne.name);

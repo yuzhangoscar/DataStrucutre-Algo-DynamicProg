@@ -11,6 +11,10 @@ class Person {
     get Name() {
         return this.name;
     }
+
+    static whoami() {
+        return this.name + this.age;
+    }
 }
 
 class Ninja extends Person {
@@ -22,3 +26,4 @@ class Ninja extends Person {
 const ninjaOne = new Ninja(`a`, 9);
 ninjaOne.Name = `aa`;
 console.log(ninjaOne.name);
+console.log(Ninja.whoami());

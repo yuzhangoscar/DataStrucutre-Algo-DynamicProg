@@ -1,13 +1,6 @@
-const obj = {
-    name: null,
-    set Name(value) {
-        this.name = value;
-    },
-    get Name() {
-        return this.name;
-    }
-}
+const arr = [0,1,2,3,4];
 
-console.log(obj.Name);
-obj.Name='y';
-console.log(obj.Name);
+console.log(arr);
+const unshiftArr = arr.unshift(-1);
+console.log(unshiftArr);
+console.log(arr);

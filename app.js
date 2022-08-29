@@ -1,6 +1,9 @@
-const arr = [0,1,2,3,4];
+const elems = {
+    length:0
+};
 
-console.log(arr);
-const unshiftArr = arr.unshift(-1);
-console.log(unshiftArr);
-console.log(arr);
+console.log(elems);
+Array.prototype.push.call(elems, 1);
+console.log(elems);
+Array.prototype.push.call(elems, 2);
+console.log(elems);

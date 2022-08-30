@@ -1,18 +1,27 @@
-const module = function() {
+const clickCount = function() {
     let count = 0;
+    const CountIncrease = () => {
+        console.log(++count);
+    }
 
     return {
-        getCount: ()=>{return count}
+        start: function() {
+            document.addEventListener('click', CountIncrease);
+        }
     }
 }();
 
-console.log(module.getCount());
-console.log(module.count);
+clickCount.start();
 
-(function(externalModule){
-    externalModule.print = () => {
-        console.log(`print me`);
+(function(module){
+    let count = 0;
+    const CountIncrease = () => {
+        console.log(++count);
     }
-}(module));
 
-module.print();
+    module.clickStart = function() {
+        document.addEventListener('wheel', CountIncrease);
+    }
+}(clickCount));
+
+clickCount.clickStart();

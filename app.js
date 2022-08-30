@@ -1,9 +1,11 @@
-const ninjaCollection = new Map();
+const module = function() {
+    let privateCount = 0;
+    return {
+        externalFn: () => {
+            return privateCount;
+        }
+    };
+}();
 
-const ninjaOne = {name: "hanzo"};
-const ninjaTwo = {name: "Juzo"};
-
-ninjaCollection.set(ninjaOne, {hometown: "Tokyo"});
-ninjaCollection.set(ninjaTwo, {hometown: "Kyoto"});
-
-console.log(ninjaCollection);
+console.log(module.externalFn());
+console.log(module.privateCount);

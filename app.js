@@ -10,8 +10,10 @@ const delay = (function delay(){
 })();
 
 (function print(externalModule) {
+    let coutn = 8.8;
+
     externalModule.print = function() {
-        console.log('this is console log');
+        console.log(`${coutn}`);
     }
 })(delay);
 

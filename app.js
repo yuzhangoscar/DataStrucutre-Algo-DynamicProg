@@ -1,27 +1,19 @@
-const clickCount = function() {
-    let count = 0;
-    const CountIncrease = () => {
-        console.log(++count);
-    }
+const delay = (function delay(){
+    let count = 8.9;
 
-    return {
-        start: function() {
-            document.addEventListener('click', CountIncrease);
+    return{
+        increase: () => {
+            count++;
+            console.log(count);
         }
+    };
+})();
+
+(function print(externalModule) {
+    externalModule.print = function() {
+        console.log('this is console log');
     }
-}();
+})(delay);
 
-clickCount.start();
-
-(function(module){
-    let count = 0;
-    const CountIncrease = () => {
-        console.log(++count);
-    }
-
-    module.clickStart = function() {
-        document.addEventListener('wheel', CountIncrease);
-    }
-}(clickCount));
-
-clickCount.clickStart();
+delay.increase();
+delay.print();

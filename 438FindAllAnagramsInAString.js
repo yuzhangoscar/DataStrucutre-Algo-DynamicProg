@@ -13,11 +13,8 @@ var findAnagrams = function(s, p) {
     while (RightPt < s.length)
     {
         for(let index = LeftPt; index <= RightPt; index++) {
-            console.log(`${s[index]}`);
             sCharOccurences[s[index].charCodeAt()-ASCIICharOffset]++;
         }
-        console.log('---');
-        //compare two arrays
         if (sCharOccurences.every((value, index) => value === pCharOccurences[index])){
             result.push(LeftPt);
         }

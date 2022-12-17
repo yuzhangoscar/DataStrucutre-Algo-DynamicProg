@@ -6,10 +6,12 @@ console.log(todoButton);
 console.log(todoInput);
 console.log(todoList);
 todoButton.addEventListener('click', (event) => {
-    console.log('hello');
+    const newTaskName = todoInput.value;
+    todoInput.value = "";
     event.preventDefault();
     const divContainer = document.createElement('div');
     divContainer.classList.add('todo');
+    divContainer.innerText = newTaskName;
     const todoTask = document.createElement('li');
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-btn');
@@ -21,4 +23,21 @@ todoButton.addEventListener('click', (event) => {
     divContainer.appendChild(deleteButton);
     divContainer.appendChild(completeButton);
     todoList.appendChild(divContainer);
+    deleteButton.addEventListener('click', deleteButtonEvent);
+    completeButton.addEventListener('click', deleteButtonEvent);
 },false);
+
+function deleteButtonEvent(e){
+    const item = e.target;
+    if (item.classList[0] === "delete-btn") {
+        const todo = item.parentElement;
+        todo.classList.add('fall');
+        todo.addEventListener('transitionend', () => {
+            todo.remove();
+        });
+    }
+    if (item.classList[0] === "complete-btn") {
+        const todo = item.parentElement;
+        todo.classList.toggle('completed');
+    }
+};

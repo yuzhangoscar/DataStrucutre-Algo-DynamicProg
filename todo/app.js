@@ -1,10 +1,29 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.getElementsByClassName('todo-button')[0];
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('.filter-todo');
 
-console.log(todoButton);
-console.log(todoInput);
-console.log(todoList);
+filterOption.addEventListener('click', (e) => {
+    const todos = todoList.children;
+    const keys = Object.keys(todos);
+    
+    keys.forEach((key) => {
+        switch(e.target.value) {
+            case "all":
+                todos[key].style.display="flex";
+                break;
+            case "completed":
+                if(todos[key].classList.contains("completed")) {
+                    todos[key].style.display = "flex";
+                }
+                else {
+                    todos[key].style.display = "none";
+                }
+                break;
+        }
+    });
+});
+
 todoButton.addEventListener('click', (event) => {
     const newTaskName = todoInput.value;
     todoInput.value = "";

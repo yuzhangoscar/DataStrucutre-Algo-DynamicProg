@@ -58,6 +58,6 @@ body {
     text-align: center;
     height: 48px;
     color: white;
-    background: url("resources/loader.gif") no-repeat center;
+    background: url("resources/icons/loader.gif") no-repeat center;
     font: 12px Arial;
 }

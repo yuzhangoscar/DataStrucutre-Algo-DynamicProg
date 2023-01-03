@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./app.js"></script>
     <link rel="stylesheet" href="./style.css">
     <title>SortableTable</title>
 </head>
 <body>
-    <table>
+    <table class="sortable">
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th aria-sort="ascending">
+                    <button>First Name
+                        <span aria-hidden = "true"></span>
+                    </button>
+                </th>
+                <th aria-sort="descending">
+                    <button>Last Name
+                        <span aria-hidden = "true"></span>
+                    </button>
+                </th>
                 <th>Age</th>
             </tr>
         </thead>
@@ -34,6 +43,5 @@
             </tr>
         </tbody>
     </table>
-    <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>

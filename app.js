@@ -1,37 +1,66 @@
-function pageLoad() {
-    const canvas = document.querySelector('#canvas');
-    const context = canvas.getContext('2d');
-    const image = document.querySelector('#octopus');
-    const openingTheme = document.querySelector('#openingTheme');
-    const themeSound = new Audio();
-
-    drawText(context, 'Rogue Octopus', 200, 300);
-    drawImage(context, image, 0, 0, 250, 500);
-    themeSound.src = 'resources/openingTheme.mp3'
-    themeSound.play();
+const game = {
+    init: function() {
+        const playgameButton = document.querySelector('#playgame');
+        playgameButton.addEventListener('click', () => {
+            game.showLevelScreen();
+        });
+        game.canvas = document.querySelector('#gamecanvas');
+        game.context = game.canvas.getContext('2d');
+        levels.init();
+        game.hideScreens();
+        game.showScreen('gamestartscreen');
+    },
+    hideScreens: function() {
+        const screens = document.querySelectorAll('.gamelayer');
+        for (let index = screens.length - 1; index >= 0; index--) {
+            let screen = screens[index];
+            screen.style.display = 'none';
+        }
+    },
+    hideScreen: function(id) {
+        const screen = document.querySelector(`#` + `${id}`);
+        screen.style.display = 'none';
+    },
+    showScreen: function(id) {
+        const screen = document.querySelector(`#` +`${id}`);
+        screen.style.display = 'block';
+    },
+    showLevelScreen: function() {
+        game.hideScreens();
+        game.showScreen('levelselectscreen');
+    }
 }
 
-function drawImage(context, image, x, y, width, height) {
-    context.drawImage(image, x, y, height, width);
-}
+const levels = {
+    data: [{
+        foreground: "desert-foreground",
+        background: "clouds-background",
+        entities:[]
+    }, {
+        foreground: "desert-foreground",
+        background: "clouds-background",
+        entities:[]
+    }],
+    init: function() {
+        const levelSelectScreen = document.querySelector('#levelselectscreen');
+        const buttonClickHandler = function() {
+            game.hideScreen('levelselectscreen');
+            levels.load(this.value-1);
+        };
 
-function drawText(context, text, x, y) {
-    context.font='30pt Arial';
-    context.strokeStyle = 'blue';
-    context.strokeText(text, x, y);
-}
+        for (let i = 0; i < levels.data.length; i++) {
+            const button = document.createElement("input");
+            button.type = "button";
+            button.value = (i+1);
+            button.addEventListener('click', buttonClickHandler);
 
-function drawArc(context, x, y, r, startAngle, endAngel, anticlockwise=false) {
-    context.beginPath();
-    context.arc(x, y, r, startAngle, endAngel, anticlockwise);
-    context.stroke();
-}
-
-function drawRect(context, x, y, width, height) {
-    context.strokeRect(x, y, width, height);
-}
+            levelSelectScreen.appendChild(button);
+        }
+    },
+    load: function(number) {}
+};
 
 window.addEventListener('load', () => {
     console.log('page has been loaded.');
-    pageLoad();
+    game.init();
 });

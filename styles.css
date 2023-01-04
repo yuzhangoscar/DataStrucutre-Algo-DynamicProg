@@ -10,7 +10,9 @@ body {
 #gamecontainer {
     width: 800px;
     height: 700px;
-    background: url("resources/icons/splashscreen.png");
+    background-image:   url("resources/icons/backgrounds/splashscreen.png");
+    background-position: center bottom, left top;
+    background-repeat: no-repeat;
 }
 
 .gamelayer {

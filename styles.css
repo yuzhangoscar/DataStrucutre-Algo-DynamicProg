@@ -9,8 +9,8 @@ body {
 
 #gamecontainer {
     width: 800px;
-    height: 700px;
-    background-image:   url("resources/icons/backgrounds/splashscreen.png");
+    height: 1000px;
+    background-image:   url("resources/icons/sword.gif");
     background-position: center bottom, left top;
     background-repeat: no-repeat;
 }

@@ -1,4 +1,12 @@
 const game = {
+    mode: "intro",
+    slightshotX: 140,
+    slightshotY: 280,
+    slightshotBandX: 140+55,
+    slightshotBandY: 280+23,
+    ended: false,
+    score: 0,
+    offsetLeft: 0,
     init: function() {
         const playgameButton = document.querySelector('#playgame');
         playgameButton.addEventListener('click', () => {
@@ -29,6 +37,9 @@ const game = {
         game.hideScreens();
         game.showScreen('levelselectscreen');
     },
+    handleGameLogic: function() {
+        game.offsetLeft++;
+    },
     start: function() {
         game.hideScreens();
         game.showScreen('gamecanvas');
@@ -40,8 +51,11 @@ const game = {
         game.animationFrame = window.requestAnimationFrame(game.animate, game.canvas);
     },
     animate: function() {
+        game.handleGameLogic();
         game.context.drawImage(game.currentLevel.backgroundImage, game.offsetLeft / 4, 0, game.canvas.width, game.canvas.height, 0, 0, game.canvas.width, game.canvas.height);
-        game.context.drawImage(game.currentLevel.foregroundImage, game.offsetLeft / 4, 0, game.canvas.width, game.canvas.height, 0, 0, game.canvas.width, game.canvas.height);
+        game.context.drawImage(game.currentLevel.foregroundImage, game.offsetLeft, 0, game.canvas.width, game.canvas.height, 0, 0, game.canvas.width, game.canvas.height);
+        game.context.drawImage(game.slingshotImage, game.slightshotX - game.offsetLeft, game.slightshotY);
+        game.context.drawImage(game.slingshotFrontImage, game.slightshotX - game.offsetLeft, game.slightshotY);
         if (!game.ended) {
             game.animationFrame= window.requestAnimationFrame(game.animate, game.canvas);
         }
@@ -83,7 +97,14 @@ const levels = {
 
         game.currentLevel.backgroundImage = loader.loadImage('resources/icons/backgrounds/' + level.background + '.png');
         game.currentLevel.foregroundImage = loader.loadImage('resources/icons/backgrounds/' + level.foreground + '.png');
-        
+        game.slingshotImage = loader.loadImage('resources/icons/slingshot.png');
+        game.slingshotFrontImage = loader.loadImage('resources/icons/slingshot-front.png');
+
+        for(let index = level.entities.length - 1; index >= 0; index--) {
+            let entity = level.entities[index];
+            entities.create(entity);
+        }
+
         loader.onload = game.start;
     }
 };

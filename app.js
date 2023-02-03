@@ -7,6 +7,7 @@ const game = {
     ended: false,
     score: 0,
     offsetLeft: 0,
+    maxSpeed: 3,
     init: function() {
         const playgameButton = document.querySelector('#playgame');
         playgameButton.addEventListener('click', () => {
@@ -15,6 +16,7 @@ const game = {
         game.canvas = document.querySelector('#gamecanvas');
         game.context = game.canvas.getContext('2d');
         levels.init();
+        mouse.init();
         game.hideScreens();
         game.showScreen('gamestartscreen');
     },
@@ -39,6 +41,33 @@ const game = {
     },
     handleGameLogic: function() {
         game.offsetLeft++;
+    },
+    panTo: function(newCenter) {
+        let minOffset = 0;
+        let maxOffset = game.currentLevel.backgroundImage.width - game.canvas.width;
+        let currentCenter = game.offsetLeft + game.canvas.width/2;
+
+        if(Math.abs(newCenter - currentCenter) > 0 && game.offsetLeft <= maxOffset && game.offsetLeft >= minOffset) {
+            let deltaX = (newCenter - currentCenter)/2;
+            if(Math.abs(deltaX) > game.maxSpeed) {
+                deltaX = game.maxSpeed * Math.sign(deltaX);
+            }
+            if(Math.abs(deltaX) <= 1) {
+                deltaX = (newCenter - currentCenter);
+            }
+            game.offsetLeft += deltaX;
+            if(game.offsetLeft <= minOffset) {
+                game.offsetLeft = minOffset;
+                return true;
+            }
+            else if(game.offsetLeft >= maxOffset) {
+                game.offsetLeft = maxOffset;
+                return true;
+            }
+            else {
+                return true;
+            }
+        }
     },
     start: function() {
         game.hideScreens();
@@ -149,6 +178,48 @@ const loader = {
                 loader.onload = undefined;
             }
         }
+    }
+}
+
+const mouse = {
+    x: 0,
+    y: 0,
+    down: false,
+    dragging: false,
+
+    init: function() {
+        const canvas = document.getElementById('gamecanvas');
+
+        canvas.addEventListener('mousemove', mouse.mousemovehandler, false);
+        canvas.addEventListener('mousedown', mouse.mousedownhandler, false);
+        canvas.addEventListener('mouseup', mouse.mouseuphandler, false);
+        canvas.addEventListener('mouseout', mouse.mouseuphandler, false);
+    },
+    mousemovehandler: function(ev) {
+        let offset = game.canvas.getBoundingClientRect();
+
+        mouse.x = ev.clientX - offset.left;
+        mouse.y = ev.clientY - offset.top;
+
+        if(mouse.down) {
+            mouse.dragging = true;
+        }
+        console.log('mouse move');
+
+        ev.preventDefault();
+    },
+    mousedownhandler: function(ev) {
+        mouse.down = true;
+        console.log('mouse down');
+
+        ev.preventDefault();
+    },
+    mouseuphandler: function(ev) {
+        mouse.down = false;
+        mouse.dragging = false;
+        console.log('mouse up');
+
+        ev.preventDefault();
     }
 }
 

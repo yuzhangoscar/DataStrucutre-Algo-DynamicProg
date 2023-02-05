@@ -1,25 +1,15 @@
-const UTIL = {
-    delay: function(timeOut) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(1);
-            }, timeOut);
-        });
-    },
-    get: function(url) {
-        return new Promise((resolve, reject) => {
-            resolve('I fetched some URL');
-        });
-    }
+const Something = function(element) {
+    this.name='I am Something';
+    this.clickOne = function(event) {
+        console.log(this.name);
+    };
+    this.clickTwo = function(event) {
+        console.log(this.name);
+    };
+    this.clickTwo = this.clickTwo.bind(this);
+    element.addEventListener('click', this.clickOne);
+    element.addEventListener('click', this.clickTwo);
 }
 
-UTIL.delay(2000).then((resolve)=>{
-    console.log(resolve);
-    return UTIL.delay(2000);
-}).then(() => {
-    let url = 'https://www.google.com'
-    return UTIL.get(url);
-}).then(response => {
-    console.log(response);
-});
-
+const S = new Something(document.querySelector('button'));
+console.log(document.querySelector('button'));

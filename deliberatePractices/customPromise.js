@@ -1,15 +1,11 @@
-const Something = function(element) {
-    this.name='I am Something';
-    this.clickOne = function(event) {
-        console.log(this.name);
-    };
-    this.clickTwo = function(event) {
-        console.log(this.name);
-    };
-    this.clickTwo = this.clickTwo.bind(this);
-    element.addEventListener('click', this.clickOne);
-    element.addEventListener('click', this.clickTwo);
-}
+const obj = {
+    one: 1,
+    two: 2,
+    three: 3,
+    fn: function() {
+        console.log('nothing');
+    }
+};
 
-const S = new Something(document.querySelector('button'));
-console.log(document.querySelector('button'));
+console.log(JSON.stringify(obj));
+console.log(JSON.parse(JSON.stringify(obj)));

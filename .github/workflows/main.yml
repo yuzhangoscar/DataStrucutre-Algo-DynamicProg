@@ -14,7 +14,7 @@ on:
 
 jobs:
   demo:
-    uses: yuzhangoscar/DataStructure-Algo-DynamicProg/.github/workflows/slave.yml@main
+    uses: yuzhangoscar/DataStrucutre-Algo-DynamicProg/.github/workflows/slave.yml@main
     with:
       version: ${{ inputs.version }}
       environment: ${{ inputs.environment }}

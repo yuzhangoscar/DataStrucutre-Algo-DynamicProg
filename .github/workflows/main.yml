@@ -1,0 +1,20 @@
+name: master workflow
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        default: "latest"
+        required: false
+        type: string
+      environment:
+        default: "staging"
+        required: true
+        type: string
+
+jobs:
+  demo:
+    uses: yuzhangoscar/DataStructure-Algo-DynamicProg/.github/workflows/slave.yml@main
+    with:
+      version: ${{ inputs.version }}
+      environment: ${{ inputs.environment }}

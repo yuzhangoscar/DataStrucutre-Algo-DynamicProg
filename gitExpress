@@ -1,5 +1,0 @@
-#!/bin/bash
-echo this is gitExpress, it executes git stage *, git commit -m "wip", git push in one command
-git stage *
-git commit -m "wip"
-git push

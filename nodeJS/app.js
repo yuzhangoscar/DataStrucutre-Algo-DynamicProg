@@ -29,6 +29,10 @@ app.get('/api/v1/query', (req, res) => {
     res.send(req.query);
 });
 
+app.post('/about', (req, res) => {
+    res.send('got it');
+});
+
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });

@@ -29,6 +29,10 @@ app.get('/products/:id', (req, res) => {
     res.json(products.find(product => product.id === Number(req.params.id)));
 });
 
+app.get('/products', (req, res) => {
+    res.json(products);
+});
+
 app.get('/api/v1/query', (req, res) => {
     res.send(req.query);
 });

@@ -1,1 +1,3 @@
-console.log('from requests.js');
+
+axios.get('http://localhost:3000/products')
+    .then(responses => console.log(responses));

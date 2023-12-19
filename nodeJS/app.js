@@ -15,10 +15,14 @@ const logger = (req, res, next) => {
     next();
 };
 
-app.use(logger, authorise);
+//app.use(logger);
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, '/html/index.html'));
+app.use(express.urlencoded({ extended: false }));
+
+app.use(express.static(path.join(__dirname, 'static')));
+
+app.get('/', (req, res) => {
+    res.redirect('html/index.html');
 });
 
 app.get('/products/:id', (req, res) => {
@@ -29,8 +33,15 @@ app.get('/api/v1/query', (req, res) => {
     res.send(req.query);
 });
 
-app.post('/about', (req, res) => {
-    res.send('got it');
+app.post('/login', (req, res) => {
+    const name = req.body.firstName;
+
+    if(name) {
+        return res.send(`welcome ${name}`);
+    }
+    else {
+        res.status(401).send('need a name');
+    }
 });
 
 app.listen(3000, () => {

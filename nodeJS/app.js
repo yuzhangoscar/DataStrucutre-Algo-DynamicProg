@@ -48,6 +48,14 @@ app.post('/login', (req, res) => {
     }
 });
 
+app.post('/add', (req, res, next) => {
+    products.push({id: 3, title: req.body.firstName});
+    console.log(products);
+    next();
+}, (req, res) => {
+    res.send('cool');
+});
+
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });

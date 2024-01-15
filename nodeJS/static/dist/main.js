@@ -1,1 +1,0 @@
-(()=>{"use strict";document.getElementById("nameList"),document.getElementById("submitBtn").addEventListener("click",(e=>{alert(e.target)})),console.log("hi")})();

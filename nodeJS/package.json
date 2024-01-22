@@ -18,7 +18,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
-    "mongoose": "^8.0.4",
+    "mongodb": "^6.3.0",
+    "mongoose": "^7.6.3",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "serve-favicon": "^2.5.0"

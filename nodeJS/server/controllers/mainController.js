@@ -3,7 +3,6 @@ exports.homepage = async (req, res) => {
         title: 'NodeJS notes',
         description: 'Free NodeJS Notes App'
     }
-    console.log(req.method);
 
     res.render('index', {
         locals,

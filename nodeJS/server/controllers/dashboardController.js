@@ -1,7 +1,7 @@
 const Note = require('../models/note');
 
 exports.homepage = async (req, res) => {
-    const notesPerPage = 4;
+    const notesPerPage = 8;
 
     const locals = {
         title: 'Dashboard',
@@ -19,6 +19,7 @@ exports.homepage = async (req, res) => {
             },
             {
                 $project: {
+                    title: { $substr: ['$title', 0, 5] },
                     body: { $substr: ['$note', 0, 4] }
                 }
             }
@@ -44,6 +45,7 @@ exports.homepage = async (req, res) => {
 
 exports.addNote = async(req, res) => {
     const newNote = {
+        title: req.body.title,
         note: req.body.textInput
     };
 

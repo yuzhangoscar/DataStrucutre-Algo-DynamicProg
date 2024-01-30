@@ -33,6 +33,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', require('./server/routes/oauth'));
 app.use('/', require('./server/routes/index'));
+app.use('/', require('./server/routes/dashboard'));
 
 //404
 app.get('*', (req, res) => {

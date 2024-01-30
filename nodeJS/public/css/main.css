@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5 {
 }
 
 .container-fluid-custom {
-    max-width: 3200px;
+    max-width: 6200px;
 }
 
 .btn {
@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5 {
     position: absolute;
     left: -50px;
     top: -30px;
-    transform: scale(0.1);
+    transform: scale(0.2);
 }
 
 .home-title::after {
@@ -40,5 +40,5 @@ h1,h2,h3,h4,h5 {
     position: absolute;
     right: -50px;
     bottom: -30px;
-    transform: scale(0.1);
+    transform: scale(0.2);
 }

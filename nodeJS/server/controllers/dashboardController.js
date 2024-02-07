@@ -56,3 +56,20 @@ exports.addNote = async(req, res) => {
         console.log(`note creation error, ${error}`);
     }
 };
+
+exports.viewNote = async(req, res) => {
+    console.log('hhh');
+    const note = await Note.findById({ _id: req.params.id });
+
+    console.log('viewing note');
+
+    if (note) {
+        res.render("dashboard/view-note", {
+        noteID: req.params.id,
+        note,
+        layout: "../views/layouts/dashboard",
+        });
+    } else {
+        res.send("Something went wrong.");
+    }
+};

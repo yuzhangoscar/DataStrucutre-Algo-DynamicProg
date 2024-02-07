@@ -58,12 +58,10 @@ exports.addNote = async(req, res) => {
 };
 
 exports.viewNote = async(req, res) => {
-    console.log('hhh');
     const note = await Note.findById({ _id: req.params.id });
 
-    console.log('viewing note');
-
     if (note) {
+        console.log(note);
         res.render("dashboard/view-note", {
         noteID: req.params.id,
         note,

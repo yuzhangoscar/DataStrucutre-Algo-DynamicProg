@@ -7,8 +7,8 @@ on:
         description: 'Some input'
         required: false
         type: string
-      permissions:
-        contents: write
+permissions:
+  contents: write
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest

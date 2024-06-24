@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnosity Assessment</title>
+    <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .learnosity-assess {
+            margin: auto;
+            width: 80%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="learnosity_assess"></div>
+    <script src="https://items.learnosity.com/?v2021.1.LTS"></script>
+    <script>
+        fetch('/assessment')
+            .then(response => response.json())
+            .then(initOptions => {
+                const itemsApp = LearnosityItems.init(initOptions, {
+                    readyListener: () => {
+                        console.log('Learnosity Assessment Loaded');
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>

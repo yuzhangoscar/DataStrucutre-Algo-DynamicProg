@@ -30,4 +30,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo {{ secrets.NAME }}
+      - run: echo ${{ secrets.NAME }}

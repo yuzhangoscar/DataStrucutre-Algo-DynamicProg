@@ -22,6 +22,19 @@ const setupSocketIO = () => {
             window.scrollTo(0, document.body.scrollHeight);
         });
     });
+
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+
+        if (key === 'ArrowUp' || key === 'ArrowDown' || key === 'ArrowLeft' || key === 'ArrowRight') {
+            console.log(`Front end log: arrow key pressed: ${key}`);
+            socket.emit('arrow key pressed', key);
+        }
+    });
+
+    socket.on('arrow key pressed', (key) => {
+        console.log(`Received arrow key press from server: ${key}`);
+    });
 };
 
 export { setupSocketIO };

@@ -25,6 +25,12 @@ io.on('connection', (socket) => {
         console.log(`${username} user disconnected`);
     });
 
+    socket.on('arrow key pressed', (key) => {
+        console.log('server side log: arrow key pressed:', key);
+        io.emit('arrow key pressed', `${key}`);
+        // Process the arrow key press (e.g., update game state)
+    });
+
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
         io.emit('chat message', `${username}: ${msg}`);

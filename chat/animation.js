@@ -13,7 +13,7 @@ function drawStickman(x, y) {
 
     // Draw head
     ctx.beginPath();
-    ctx.arc(x, y - 40, 10, 0, Math.PI * 2, true);
+    ctx.arc(x, y - 20, 10, 0, Math.PI * 2, true);
     ctx.stroke();
 
     // Draw body
@@ -39,7 +39,9 @@ function drawStickman(x, y) {
     ctx.stroke();
 }
 
-function updateStickman() {
+function updateStickman(direction) {
+    stickman.direction = direction;
+
     if (stickman.direction === 'right') {
         stickman.x += stickman.step;
         if (stickman.x > canvas.width - 5) {
@@ -53,10 +55,10 @@ function updateStickman() {
     }
 }
 
-function animate() {
-    updateStickman();
+function animate(direction) {
+    updateStickman(direction);
     drawStickman(stickman.x, stickman.y);
-    requestAnimationFrame(animate);
+    //requestAnimationFrame(animate);
 }
 
-animate();
+export { animate };

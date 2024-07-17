@@ -1,4 +1,5 @@
 import { io } from "socket.io-client"
+import { animate } from "./animation";
 
 const socket = io();
 
@@ -34,6 +35,7 @@ const setupSocketIO = () => {
 
     socket.on('arrow key pressed', (key) => {
         console.log(`Received arrow key press from server: ${key}`);
+        animate('right');
     });
 };
 

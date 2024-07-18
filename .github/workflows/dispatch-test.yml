@@ -1,0 +1,40 @@
+#####
+# Manual release dispatch
+#####
+name: manual trigger e2e test
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        default: latest
+        description: "Version, default is latest"
+        required: true
+        type: string
+      environment:
+        description: "Environment, choose staging when testing against staging, choose prod when testing qa"
+        required: true
+        type: choice
+        options:
+          - staging
+          - qa
+      ref:
+        description: "The referece to use for the test code (optional)"
+        type: string
+        required: false
+      use-test-fixes:
+        description: "Use the test-fixes branches when available"
+        type: boolean
+        required: false
+        default: true
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    name: ${{ inputs.environment }}
+    steps: 
+
+      - name: Print out variables
+        id: echo-args
+        run: |
+          echo "env=${{ inputs.environment }}"
+          echo "region=${{ inputs.version }}"

@@ -38,3 +38,15 @@ jobs:
         run: |
           echo "env=${{ inputs.environment }}"
           echo "region=${{ inputs.version }}"
+
+      - name: Create an empty file
+        run: |
+          touch text.txt
+    
+      - name: Append to this emtpy file
+        run: |
+          echo "this is the content" >> text.txt
+
+      - name: Print out this file
+        run: |
+          cat text.txt

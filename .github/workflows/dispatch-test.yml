@@ -39,14 +39,11 @@ jobs:
           echo "env=${{ inputs.environment }}"
           echo "region=${{ inputs.version }}"
 
-      - name: Create an empty file
+      - name: Install cowsay
         run: |
-          touch text.txt
-    
-      - name: Append to this emtpy file
-        run: |
-          echo "this is the content" >> text.txt
+          sudo apt update
+          sudo apt install -y cowsay
 
-      - name: Print out this file
+      - name: Run cowsay
         run: |
-          cat text.txt
+          cowsay ${{ inputs.environment }}

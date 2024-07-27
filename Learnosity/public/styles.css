@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    /* Prevents scrollbar from appearing */
+    background-color: blanchedalmond;
+    /* Optional: Night sky background */
+    position: relative;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    /* Ensure content is above the stars */
+    color: rgb(207, 14, 27);
+    text-align: center;
+    padding-top: 50vh;
+    /* Center content vertically */
+}
+
+.star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    /* Allow clicks through the star layer */
+    z-index: 0;
+    /* Ensure stars are below the content */
+}
+
+.star {
+    position: absolute;
+    top: -10px;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(181, 25, 25);
+    border-radius: 50%;
+    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp</title>
+    <script src="https://questions.learnosity.com/?v2024.2.LTS"></script>
+    <script src="/app.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <h1>QUESTIONS API</h1>
+        <div class="star-container"></div>
+        <div class="learnosity-response question-60005"></div>
+        <div class="learnosity-response question-60006"></div>
+        <button id="totalScore">totalScore</button>
+        <script>
+            var request = <%- JSON.stringify(request) %>; 
+            const questionsApp = LearnosityApp.init(request, {
+                    readyListener() {
+                        console.log('ready');
+                    },
+                    errorListener(err) {
+                        console.log('error', err);
+                    }
+                });
+        </script>
+    </body>
+</html>
